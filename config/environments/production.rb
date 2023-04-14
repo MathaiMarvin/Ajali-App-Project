@@ -12,6 +12,17 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  # Configuring active storage to S3
+  config.active_storage.service = :amazon
+  config.active_storage.service_config = {
+    service: 'S3',
+    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+    region: 'us-east-1',
+    bucket: 'ajalifiles'
+  }
+
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
