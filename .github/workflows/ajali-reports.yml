@@ -1,0 +1,23 @@
+name: AjaliReportsCI
+
+# Conditions that will trigger this action
+on: 
+  workflow_dispatch:
+  push: 
+    branches: [main, development]
+  pull_request:
+    branches: [main, development]
+
+#All processses that are to be handled
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    steps:
+      -uses: actions/checkout@v3
+      -uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7.4'
+
+      -run: cd api && bundle install
+      -run: cd api && bundle exec rails db:migrate RAILS_ENV=test
+
