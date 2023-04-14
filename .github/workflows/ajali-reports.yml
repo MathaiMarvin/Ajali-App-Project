@@ -8,16 +8,20 @@ on:
   pull_request:
     branches: [main]
 
-#All processses that are to be handled
+# All processes that are to be handled
 jobs:
   rspec:
     runs-on: ubuntu-latest
     steps:
-      -uses: actions/checkout@v3
-      -uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7.4'
-      bundler-cache: false
-      -run: cd api && bundle install
-      -run: cd api && bundle exec rails db:migrate RAILS_ENV=test
-
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.4'
+      - name: Install dependencies
+        run: |
+          cd api
+          bundle install
+      - name: Run database migrations
+        run: |
+          cd api
+          bundle exec rails db:migrate RAILS_ENV=test
