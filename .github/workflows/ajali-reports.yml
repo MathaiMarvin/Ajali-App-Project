@@ -10,7 +10,7 @@ on:
 
 # All processes that are to be handled
 jobs:
-  rspec:
+  
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
