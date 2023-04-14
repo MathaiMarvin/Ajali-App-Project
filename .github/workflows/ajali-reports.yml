@@ -12,14 +12,6 @@ on:
 jobs:
   rspec:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_USER: ajali_app
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: ajali_development
-
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
@@ -29,7 +21,7 @@ jobs:
         run: |
           cd api
           bundle install
-      - name: Run database migrations
-        run: |
-          cd api
-          bundle exec rails db:migrate RAILS_ENV=development
+      # - name: Run database migrations
+      #   run: |
+      #     cd api
+      #     bundle exec rails db:migrate RAILS_ENV=development
