@@ -12,6 +12,6 @@ def destroy
     Incident.find(params[:id]).destroy
 end
     def incident_params
-        params.permit(:title, :description, :status)
+        params.permit(:title, :description, :status, :images, :videos, :geolocations)
     end
 end
