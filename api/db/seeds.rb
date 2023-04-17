@@ -1,4 +1,3 @@
-require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,17 +5,3 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
-
-
-# 10.times do
-#   Incident.create!(
-#     title: Faker::Lorem.sentence,
-#     description: Faker::Lorem.paragraph,
-#     status: ["open", "closed", "pending"].sample,
-#     user_id: rand(1..10),
-#     created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
-#     updated_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
-#   )
-# end
-Incident.create!([{title:"flood", description:"fatal", status:"rejected", user_id: 1},{title:"fire", description:"fatal", status:"rejected", user_id: 2}])
