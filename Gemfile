@@ -22,6 +22,7 @@ gem "jbuilder"
 # gem "redis", "~> 4.0"
 # password hashing
 gem "bcrypt", "~> 3.1.7"
+gem "rack-cors"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
