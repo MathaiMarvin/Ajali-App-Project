@@ -5,7 +5,7 @@ import imgtestimonial from "../img/testimonial1.jpeg"
 import imgtestimonial2 from "../img/testimonial2.jpeg"
 import imgtestimonial3 from "../img/testimonial3.jpeg"
 import '../index.css'
-const Home = () => {
+const Signup = () => {
     return ( 
         <div>
             <nav
@@ -29,9 +29,9 @@ const Home = () => {
                         </div>
                         {/* right container with form */}
                         <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
-                            <h1 className="text-base font-normal flex justify-center mb-5 border-b border-gray-100 uppercase pb-3"> Welcome to Ajali Report</h1>
+                            <h1 className="text-base font-normal flex justify-center mb-5 border-b border-gray-100 uppercase pb-3"> Register Now</h1>
                             <form action="">
-                                {/* email input
+                                {/* email input */}
                                 <div className="relative mb-6" data-te-input-wrapper-init>
                                 <input
                                     type="text"
@@ -43,7 +43,7 @@ const Home = () => {
                                     className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                                     >Email address
                                     </label>
-                                </div> */}
+                                </div>
                                 {/* username input */}
                                 <div className="relative mb-6" data-te-input-wrapper-init>
                                 <input
@@ -104,7 +104,7 @@ const Home = () => {
                                     style={{backgroundColor: "#3b5998"}}
                                     data-te-ripple-init
                                     data-te-ripple-color="light">
-                                    Log in
+                                    Sign up
                                 </button>
                                  {/* Divider  */}
                                 <div
@@ -120,11 +120,11 @@ const Home = () => {
 
                                 {/* Register link */}
                                 <p className="mb-0 mt-4 pt-1 text-sm font-semibold">
-                                Don't have an account?
+                                Already have an account?
                                 <Link
-                                    to="/signup"
+                                    to="/"
                                     className="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700 ml-2 hover:cursor-pointer"
-                                    >Sign up</Link>
+                                    >Login</Link>
                                 </p>
 
                             </form>
@@ -440,7 +440,7 @@ const Home = () => {
                     <span>© 2023 Copyright:</span>
                     <Link
                     class="font-semibold text-neutral-600 dark:text-neutral-400"
-                    to="/signup"
+                    to="/"
                     >Ajali Reports</Link >
                 </div>
                 </footer>
@@ -450,4 +450,4 @@ const Home = () => {
      );
 }
  
-export default Home;
+export default Signup;
