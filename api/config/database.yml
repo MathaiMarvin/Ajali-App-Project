@@ -86,6 +86,6 @@ test:
 #
 production:
   <<: *default
-  database: ajali_production
-  username: ajali
+  database: ajalidev
+  username: student
   password: <%= ENV["AJALI_DATABASE_PASSWORD"] %>
