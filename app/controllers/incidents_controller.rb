@@ -1,4 +1,5 @@
 class IncidentsController < ApplicationController
+  protect_from_forgery with: :null_session
 
     def index
     incidents = Incident.all
@@ -33,12 +34,22 @@ class IncidentsController < ApplicationController
         end
     
         end
+
+    def destroy
+    incident = Incident.find_by(id: params[:id])
+          if incident
+          incident.destroy
+              app_response(message: 'Incident deleted successfully', status: :ok)
+          else
+              app_response(message: 'Failed to delete Incident', status: :unprocessable_entity)
+          end
+      end
  
 
 private
 
 def incident_params
-  params.require(:incident).permit(:title, :description, :status )
+  params.require(:incident).permit(:title, :description, :status, :user_id )
 end
 
 end 
