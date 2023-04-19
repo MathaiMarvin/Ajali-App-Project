@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import image from "../img/roadaccident.jpg"
+import imgtestimonial from "../img/testimonial1.jpeg"
 import '../index.css'
 const Home = () => {
     return ( 
@@ -149,10 +150,10 @@ const Home = () => {
                         <div
                         class="mx-auto -mt-12 w-20 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
                         <img
-                            src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" />
+                            src={imgtestimonial} />
                         </div>
                         <div class="p-6">
-                        <h4 class="mb-4 text-2xl font-semibold">Maria Smantha</h4>
+                        <h4 class="mb-4 text-2xl font-semibold">James Kiragu</h4>
                         <hr />
                         <p class="mt-4">
                             <svg
@@ -181,7 +182,7 @@ const Home = () => {
                             src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" />
                         </div>
                         <div class="p-6">
-                        <h4 class="mb-4 text-2xl font-semibold">Lisa Cudrow</h4>
+                        <h4 class="mb-4 text-2xl font-semibold">Miriam Kioko</h4>
                         <hr />
                         <p class="mt-4">
                             <svg
@@ -210,7 +211,7 @@ const Home = () => {
                             src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" />
                         </div>
                         <div class="p-6">
-                        <h4 class="mb-4 text-2xl font-semibold">John Smith</h4>
+                        <h4 class="mb-4 text-2xl font-semibold">John Maina</h4>
                         <hr />
                         <p class="mt-4">
                             <svg
