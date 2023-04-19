@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import image from "../img/roadaccident.jpg"
 import imgtestimonial from "../img/testimonial1.jpeg"
+import imgtestimonial2 from "../img/testimonial2.jpeg"
+import imgtestimonial3 from "../img/testimonial3.jpeg"
 import '../index.css'
 const Home = () => {
     return ( 
@@ -150,7 +152,7 @@ const Home = () => {
                         <div
                         class="mx-auto -mt-12 w-20 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
                         <img
-                            src={imgtestimonial} />
+                            src={imgtestimonial2} />
                         </div>
                         <div class="p-6">
                         <h4 class="mb-4 text-2xl font-semibold">James Kiragu</h4>
@@ -179,7 +181,7 @@ const Home = () => {
                         <div
                         class="mx-auto -mt-12 w-20 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
                         <img
-                            src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" />
+                            src={imgtestimonial2} />
                         </div>
                         <div class="p-6">
                         <h4 class="mb-4 text-2xl font-semibold">Miriam Kioko</h4>
@@ -208,7 +210,7 @@ const Home = () => {
                         <div
                         class="mx-auto -mt-12 w-20 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
                         <img
-                            src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" />
+                            src={imgtestimonial2} />
                         </div>
                         <div class="p-6">
                         <h4 class="mb-4 text-2xl font-semibold">John Maina</h4>
@@ -329,23 +331,23 @@ const Home = () => {
                     <div class="">
                         <h6
                         class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-                        Products
+                        Incidents
                         </h6>
                         <p class="mb-4">
                         <a href="#!" class="text-neutral-600 dark:text-neutral-200"
-                            >Angular</a>
+                            >Car Accidents</a>
                         </p>
                         <p class="mb-4">
                         <a href="#!" class="text-neutral-600 dark:text-neutral-200"
-                            >React</a>
+                            >Fires</a>
                         </p>
                         <p class="mb-4">
                         <a href="#!" class="text-neutral-600 dark:text-neutral-200"
-                            >Vue</a >
+                            >Domestic Violence</a >
                         </p>
                         <p>
                         <a href="#!" class="text-neutral-600 dark:text-neutral-200"
-                            >Laravel</a>
+                            >Floods</a>
                         </p>
                     </div>
                     {/* Useful links section  */}
@@ -356,7 +358,7 @@ const Home = () => {
                         </h6>
                         <p class="mb-4">
                         <a href="#!" class="text-neutral-600 dark:text-neutral-200"
-                            >Pricing</a>
+                            >About</a>
                         </p>
                         <p class="mb-4">
                         <a href="#!" class="text-neutral-600 dark:text-neutral-200"
@@ -364,7 +366,7 @@ const Home = () => {
                         </p>
                         <p class="mb-4">
                         <a href="#!" class="text-neutral-600 dark:text-neutral-200"
-                            >Orders</a>
+                            >Contact Us</a>
                         </p>
                         <p>
                         <a href="#!" class="text-neutral-600 dark:text-neutral-200"
