@@ -1,45 +1,27 @@
 class UsersController < ApplicationController
-    protect_from_forgery with: :null_session
-    def index 
-        users = User.all
-        render json: users, status: :ok
-    end
-
     def create
         user = User.create(userParams)
         if user.valid?
-            token = encode(user.id, user.email, user.role)
-            app_response(message:'Registration was successful', status:200, data:{user: user, token: token})
+            save_user(user.id)
+            app_response(message: 'Registration was successful', status: :created, data: user)
         else
-            app_response(message:'failed', status:400, data:{info: 'Invalid credentials'})
+            app_response(message: 'Something went wrong during registration', status: :unprocessable_entity, data: user.errors)
         end
     end
-
-    def show
-        user = User.find_by(id: params[:id])
-        if user
-            render json: user, status: :ok
-        else
-            render json: {message: "user not found"},status: :not_found
-        end
-
-    end
-
-
     def login
-        sql = "username = :username OR email = :email"
-        user = User.where(sql, {username: userParams[:username], email: userParams[:email]}).first
-        if user && user.authenticate(userParams[:password])
-            token = encode(user.id, user.email, user.role)
-            app_response(message:'Login was successful', status:200, data:{user: user, token: token})
+        user = User.find_by(email: params[:email])
+        if user&.authenticate(params[:password])
+            session[:user_id] = user.id
+            render json: {message: "WELCOME"}, status: :ok
         else
-            app_response(message:'failed', status:400, data:{info: 'Invalid credentials'})
+            render json: { error: "UNAUTHORIZED" }, status: :not_found
         end
     end
+      
+    private
 
     def userParams
-        params[:role] || "normal_user"
-        params.permit(:email, :username, :password, :role, :phone_number)
+        params.require(:user).permit(:username,:email,:password, :role, :phone_number)
     end
 
 end
