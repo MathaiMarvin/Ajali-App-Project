@@ -2601,3 +2601,325 @@ Completed 200 OK in 104ms (Views: 4.3ms | ActiveRecord: 22.9ms | Allocations: 97
 >>>>>>> eeb5b084d422094b0a02135c200ba7cdf61e9ccc
 
 
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:34:58 +0300
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: ajali_app.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:35:57 +0300
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: ajali_app.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:36:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `protect_from_forgery' for IncidentsController:Class):
+  
+app/controllers/incidents_controller.rb:2:in `<class:IncidentsController>'
+app/controllers/incidents_controller.rb:1:in `<main>'
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:36:36 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"title", "description"=>"small title", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"small title", "status"=>"rejected"}}
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 37.8ms | Allocations: 23896)
+
+
+  
+NoMethodError (undefined method `app_response' for #<IncidentsController:0x0000000000e498>):
+  
+app/controllers/incidents_controller.rb:14:in `create'
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:39:08 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"title", "description"=>"small title", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"small title", "status"=>"rejected"}}
+Completed 422 Unprocessable Entity in 51ms (Views: 11.8ms | ActiveRecord: 8.6ms | Allocations: 22842)
+
+
+Started POST "/users/login" for ::1 at 2023-04-20 14:39:31 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"ryan langat", "password"=>"[FILTERED]", "email"=>"langat@gmail.com", "user"=>{"email"=>"langat@gmail.com", "username"=>"ryan langat"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "langat@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `login'
+Completed 200 OK in 245ms (Views: 0.2ms | ActiveRecord: 3.4ms | Allocations: 17243)
+
+
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:39:55 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"title", "description"=>"small title", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"small title", "status"=>"rejected"}}
+Completed 422 Unprocessable Entity in 6ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 1036)
+
+
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:40:29 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"title", "description"=>"small title", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"small title", "status"=>"rejected"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+Completed 422 Unprocessable Entity in 16ms (Views: 0.4ms | ActiveRecord: 4.1ms | Allocations: 4408)
+
+
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:40:36 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"title", "description"=>"small title", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"small title", "status"=>"rejected"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+Completed 422 Unprocessable Entity in 15ms (Views: 0.4ms | ActiveRecord: 5.7ms | Allocations: 4446)
+
+
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:40:48 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"title", "description"=>"small title", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"small title", "status"=>"rejected"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+Completed 422 Unprocessable Entity in 22ms (Views: 0.6ms | ActiveRecord: 6.0ms | Allocations: 4444)
+
+
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:44:21 +0300
+  
+SyntaxError (/home/ryan/Development/code/mode_5/Ajali-App-Project/api/app/controllers/incidents_controller.rb:4: syntax error, unexpected ':', expecting `end'
+    before_action : authorize
+                  ^
+):
+  
+app/controllers/incidents_controller.rb:4: syntax error, unexpected ':', expecting `end'
+app/controllers/incidents_controller.rb:4: syntax error, unexpected ':', expecting `end'
+app/controllers/incidents_controller.rb:4: syntax error, unexpected ':', expecting `end'
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:44:36 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"title", "description"=>"small title", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"small title", "status"=>"rejected"}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 15.5ms | Allocations: 123)
+
+
+Started POST "/users/register" for ::1 at 2023-04-20 14:45:47 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"test", "email"=>"test@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "username"=>"test"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fafbce97460>, params: {"username"=>"test", "email"=>"test@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"test@gmail.com", "username"=>"test"}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:3:in `create'
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `create'
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "role", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "test@gmail.com"], ["username", "test"], ["password_digest", "[FILTERED]"], ["role", "0"], ["phone_number", nil], ["created_at", "2023-04-20 11:45:47.400099"], ["updated_at", "2023-04-20 11:45:47.400099"]]
+  ↳ app/controllers/users_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:3:in `create'
+Completed 201 Created in 257ms (Views: 1.0ms | ActiveRecord: 14.3ms | Allocations: 6436)
+
+
+Started GET "/users/login" for ::1 at 2023-04-20 14:46:35 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/login"):
+  
+Started POST "/users/login" for ::1 at 2023-04-20 14:46:43 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"test", "email"=>"test@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "username"=>"test"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `login'
+Completed 200 OK in 230ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 695)
+
+
+Started POST "/incidents/create" for ::1 at 2023-04-20 14:47:29 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"title", "description"=>"desc", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"desc", "status"=>"rejected"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:11:in `create'
+  [1m[36mIncident Create (5.2ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "title"], ["description", "desc"], ["status", "1"], ["user_id", 34], ["created_at", "2023-04-20 11:47:29.350002"], ["updated_at", "2023-04-20 11:47:29.350002"]]
+  ↳ app/controllers/incidents_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:11:in `create'
+Completed 201 Created in 54ms (Views: 0.6ms | ActiveRecord: 10.0ms | Allocations: 10994)
+
+
+Started DELETE "/incidents/create" for ::1 at 2023-04-20 14:47:37 +0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/incidents/create"):
+  
+Started DELETE "/incidents/21" for ::1 at 2023-04-20 14:48:29 +0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/incidents/21"):
+  
+Started DELETE "/incidents/1" for ::1 at 2023-04-20 14:48:38 +0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/incidents/1"):
+  
+Started DELETE "/incidents/1" for ::1 at 2023-04-20 14:48:48 +0300
+Processing by IncidentsController#destroy as */*
+  Parameters: {"title"=>"title", "description"=>"desc", "status"=>"rejected", "id"=>"1", "incident"=>{"title"=>"title", "description"=>"desc", "status"=>"rejected"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+  [1m[36mIncident Load (0.6ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents" WHERE "incidents"."user_id" = $1 AND "incidents"."id" = $2 LIMIT $3[0m  [["user_id", 34], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/incidents_controller.rb:40:in `destroy'
+Completed 422 Unprocessable Entity in 72ms (Views: 0.3ms | ActiveRecord: 11.2ms | Allocations: 15631)
+
+
+Started GET "/incidents/" for ::1 at 2023-04-20 14:49:01 +0300
+Processing by IncidentsController#index as */*
+  Parameters: {"title"=>"title", "description"=>"desc", "status"=>"rejected", "incident"=>{"title"=>"title", "description"=>"desc", "status"=>"rejected"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+  [1m[36mIncident Load (0.9ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents" WHERE "incidents"."user_id" = $1[0m  [["user_id", 34]]
+  ↳ app/controllers/application_controller.rb:6:in `app_response'
+Completed 200 OK in 11ms (Views: 4.0ms | ActiveRecord: 1.5ms | Allocations: 1596)
+
+
+Started GET "/incidents/1" for ::1 at 2023-04-20 14:49:07 +0300
+Processing by IncidentsController#show as */*
+  Parameters: {"title"=>"title", "description"=>"desc", "status"=>"rejected", "id"=>"1", "incident"=>{"title"=>"title", "description"=>"desc", "status"=>"rejected"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+  [1m[36mIncident Load (0.4ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents" WHERE "incidents"."user_id" = $1 AND "incidents"."id" = $2 LIMIT $3[0m  [["user_id", 34], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:20:in `show'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 1359)
+
+
+Started DELETE "/incidents/1" for ::1 at 2023-04-20 14:49:18 +0300
+Processing by IncidentsController#destroy as */*
+  Parameters: {"title"=>"title", "description"=>"desc", "status"=>"rejected", "id"=>"1", "incident"=>{"title"=>"title", "description"=>"desc", "status"=>"rejected"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+  [1m[36mIncident Load (0.8ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents" WHERE "incidents"."user_id" = $1 AND "incidents"."id" = $2 LIMIT $3[0m  [["user_id", 34], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/incidents_controller.rb:40:in `destroy'
+Completed 422 Unprocessable Entity in 15ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 3444)
+
+
+Started PATCH "/incidents/1" for ::1 at 2023-04-20 14:50:36 +0300
+Processing by IncidentsController#update as */*
+  Parameters: {"title"=>"title", "description"=>"desc", "status"=>"resolved", "id"=>"1", "incident"=>{"title"=>"title", "description"=>"desc", "status"=>"resolved"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `user'
+  [1m[36mIncident Load (1.1ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents" WHERE "incidents"."user_id" = $1 AND "incidents"."id" = $2 LIMIT $3[0m  [["user_id", 34], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:30:in `update'
+  [1m[36mIncident Update (2.6ms)[0m  [1m[33mUPDATE "incidents" SET "status" = $1, "updated_at" = $2 WHERE "incidents"."id" = $3[0m  [["status", "2"], ["updated_at", "2023-04-20 11:50:36.070212"], ["id", 1]]
+  ↳ app/controllers/incidents_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:30:in `update'
+Completed 200 OK in 19ms (Views: 1.0ms | ActiveRecord: 6.5ms | Allocations: 3276)
+
+

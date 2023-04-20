@@ -21,13 +21,13 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: ajali_app
+  username: kiptoo
   password: password
 
 development:
   <<: *default
   database: ajali_development
-  username: ajali_app
+  username: kiptoo
   password: password
 
   # The specified database role being used to connect to postgres.

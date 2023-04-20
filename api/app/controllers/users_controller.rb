@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def create
-        user = User.create!(userParams)
+        user = User.create(userParams)
         if user
             save_user(user.id)
             render json: user, status: :created
