@@ -11,12 +11,13 @@ function IncidentForm(props) {
     accidentDate: "",
     description: "",
     status: "",
-    imageUpload: "",
+    imageUpload: null,
     videoUpload: null,
     geolocation: "",
   }); // set the default location here
   const [submittedData, setSubmittedData] = useState(null);
-  const [imageURL, setImageURL] = useState(null); 
+  const [imageURL, setImageURL] = useState(null);
+  const [videoURL, setVideoURL] = useState(null); // new state variable for video URL
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -26,10 +27,15 @@ function IncidentForm(props) {
   const handleFileChange = (event) => {
     const { name, files } = event.target;
     setFormData({ ...formData, [name]: files[0] });
-  
-    // Check if the selected file is an image
-    if (event.target.accept === "image/*") {
-      // Read image file and set image URL
+
+     if (event.target.accept === "video/*") {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setVideoURL(e.target.result);
+        };
+        reader.readAsDataURL(files[0]);
+      }
+   else if (event.target.accept === "image/*") {
       const reader = new FileReader();
       reader.onload = (e) => {
         setImageURL(e.target.result);
@@ -37,7 +43,6 @@ function IncidentForm(props) {
       reader.readAsDataURL(files[0]);
     }
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form data:", formData);
@@ -47,11 +52,11 @@ function IncidentForm(props) {
       accidentDate: "",
       description: "",
       status: "",
-      imageUpload: "",
+      imageUpload: null,
       videoUpload: null,
       geolocation: "",
     });
-    setImageURL(null);
+    // setImageURL(null);
   };
   useEffect(() => {
     axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${location},Kenya&key=d8e08d86813a4657bb5f4b35886dcea2`)
@@ -151,29 +156,35 @@ function IncidentForm(props) {
           <option value="resolved">Resolved</option>
         </select>
 
-        <label htmlFor="image-upload">Image Upload:</label>
-      
+        <label htmlFor="imageUpload">Image Upload</label>
         <input
           type="file"
-          id="image-upload"
+          id="imageUpload"
           name="imageUpload"
           accept="image/*"
           onChange={handleFileChange}
-          
         />
-   {imageURL && ( // Display image if imageURL is present
-              <img src={imageURL} alt="Uploaded" />
-            )}
-        <label htmlFor="video-upload">Video Upload:</label>
+        {imageURL && (
+          <div>
+            <h3>Preview:</h3>
+            <img src={imageURL} alt="Uploaded" width="200" />
+          </div>
+        )}
+        <label htmlFor="videoUpload">Video Upload</label>
         <input
-        
           type="file"
-          id="video-upload"
+          id="videoUpload"
           name="videoUpload"
           accept="video/*"
           onChange={handleFileChange}
         />
-
+        {videoURL && (
+          <div>
+            <h3>Preview:</h3>
+            <video src={videoURL} controls width="200" />
+          </div>
+        )}
+  
         <label htmlFor="geolocation">Geolocation:</label>
         <input className='input' type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
         <p>Latitude: {latitude}</p>
@@ -184,19 +195,39 @@ function IncidentForm(props) {
       </form>
       
       </div>
-      <div id="map" style={{ height: '800px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
+      <div id="map" style={{ height: '1410px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
       </div>
       {submittedData && (
   <div className="card">
-    <h2>Submitted Form Data:</h2>
-    <p>Title: {submittedData.title}</p>
-    <p>Accident Date: {submittedData.accidentDate}</p>
-    <p>Accident Description: {submittedData.description}</p>
-    <img src={imageURL} alt="Uploaded" />
-    <p>Latitude: {location}</p> 
-    <p>Latitude: {latitude}</p> 
-    <p>Longitude: {longitude}</p> 
+    <div className='card-text'>
+    <p className='text-title'><span style={{ textTransform: 'uppercase' }}>{submittedData.title}</span></p>
+    <p style={{ color: 'orange' }}>ACCIDENT DATE: {submittedData.accidentDate}</p>
+    <p>DESCRIPTION:<span style={{ textTransform: 'capitalize' }}> {submittedData.description}</span></p>
+    <p>LOCATION: <span style={{ textTransform: 'capitalize' }}>{location} </span></p> 
+    <p>LATITUDE:    {latitude}</p> 
+    <p>LONGITUDE:   {longitude}</p> 
+    
+</div>
+<div className='card-img'>
+{imageURL && (
+  <div>
+ 
+    {/* <img src={imageURL} alt="Uploaded" width="300" height="800" /> */}
+    <img src={imageURL} alt="Uploaded"  /> 
+  </div>
+)}
+    
+    {/* <img src={imageURL} alt="Uploaded" /> */}
 
+          {videoURL && (
+            <div>
+             
+              {/* <video src={videoURL} controls width="100" height="200" /> */}
+              <video src={videoURL} controls />
+            </div>
+          )}
+ 
+</div>
   </div>
 )}
     </div>
