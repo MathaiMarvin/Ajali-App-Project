@@ -1,7 +1,6 @@
-require 'test/unit'
-require_relative 'user'
+require 'test_helper'
 
-class UserTest < Test::Unit::TestCase
+class UserTest < ActiveSupport::TestCase
   def setup
     @existing_user = User.create(email: "test@example.com", password: "password")
   end
