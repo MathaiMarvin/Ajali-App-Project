@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # protect_from_forgery with: :null_session
+    protect_from_forgery with: :null_session
     def index 
         users = User.all
         render json: users, status: :ok
@@ -38,7 +38,8 @@ class UsersController < ApplicationController
     end
 
     def userParams
-        params.require(:user).permit(:email, :username, :password, :phone_number)
+        params[:role] || "normal_user"
+        params.permit(:email, :username, :password, :role, :phone_number)
     end
 
 end
