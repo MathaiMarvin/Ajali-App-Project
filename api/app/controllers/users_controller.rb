@@ -18,6 +18,8 @@ class UsersController < ApplicationController
             render json: { error: "UNAUTHORIZED" }, status: :not_found
         end
     end
+      
+    private
 
     def userParams
         params.permit(:username,:email,:password,:phone_number)

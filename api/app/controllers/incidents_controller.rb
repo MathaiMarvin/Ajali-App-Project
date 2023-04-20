@@ -7,7 +7,7 @@ class IncidentsController < ApplicationController
     end
     
     def create
-    incident = user.incidents.create(incident_params)
+    incident = Incident.create(incident_params)
     if incident.valid?
     app_response(status: :created, data: incident)
     else
