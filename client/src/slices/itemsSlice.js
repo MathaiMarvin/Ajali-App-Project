@@ -1,29 +1,31 @@
-//import function from Redux toolkit
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-//Define initial state object
-const initialState = {
-    items: [],
-    loading: false,
-    error: null,
-};
-
-// Define itemsSlice by calling createSlice
-// Twoactions have been defined here, addItem-adds new item to the items array
-// removeItem-removes an item with the specified id
 const itemsSlice = createSlice({
-    name: 'items',
-    initialState,
-    reducers: {
-        addItem: (state, action) => {
-         state.items.push(action.payload);   
-        },
-        removeItem: (state, action) => {
-            state.items = state.items.filter(item => item.id !== action.payload);
-        },
-    }
+  name: 'items',
+  initialState: [],
+  reducers: {
+    addItem: async (state, action) => {
+      try {
+        const { title, description, image, video } = action.payload;
+
+        const response = await fetch('', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ title, description, image, video }),
+        });
+
+        const newItem = await response.json();
+
+        state.push(newItem);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
 });
 
-//export the actions and reducer from itemsSlice
-export const {addItem, removeItem} = itemsSlice.actions;
+export const { addItem } = itemsSlice.actions;
+
 export default itemsSlice.reducer;
