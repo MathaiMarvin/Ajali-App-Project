@@ -27,8 +27,7 @@ default: &default
 development:
   <<: *default
   database: ajali_development
-  username: ajali_app
-  password: password
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -86,6 +85,7 @@ development:
 #
 production:
   <<: *default
-  database: ajalidev
-  username: student
-  password: <%= ENV["AJALI_DATABASE_PASSWORD"] %>
+  # database: ajalidev
+  # username: student
+  # password: <%= ENV["AJALI_DATABASE_PASSWORD"] %>
+  url:  <%= ENV["DATABASE_URL"] %>
