@@ -125,7 +125,6 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.14.3-x86_64-linux)
       racc (~> 1.4)
-    pg (1.4.6)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -206,7 +205,6 @@ DEPENDENCIES
   capybara
   debug
   jbuilder
-  pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   selenium-webdriver
@@ -216,7 +214,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 2.7.4p191
+   ruby 2.7.2p137
 
 BUNDLED WITH
-   2.4.7
+   2.4.10
