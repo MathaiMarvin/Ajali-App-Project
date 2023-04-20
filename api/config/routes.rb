@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :incidents
   resources :geolocations
   resources :videos
   resources :images
