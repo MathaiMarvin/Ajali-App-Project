@@ -1,3 +1,10 @@
+require "test_helper"
+
+class GeolocationTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end
 require 'test/unit'
 require_relative 'geolocation'
 require_relative 'incident'

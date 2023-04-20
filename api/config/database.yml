@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+<<<<<<< HEAD:api/config/database.yml
   # host: localhost
   # username: ajalidev
   # password: password
@@ -29,6 +30,17 @@ default: &default
 #   database: ajali_development
 #   username: ajali_app
 #   password: password
+=======
+  host: localhost
+  username: kiptoo
+  password: password
+
+development:
+  <<: *default
+  database: ajali_development
+  username: kiptoo
+  password: password
+>>>>>>> 3e7b80faa6a522da3cb796dbf9dce482aa4c5eb2:config/database.yml
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
