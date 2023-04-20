@@ -115,7 +115,10 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+<<<<<<< HEAD
+=======
     jmespath (1.6.2)
+>>>>>>> eeb5b084d422094b0a02135c200ba7cdf61e9ccc
     jwt (2.7.0)
     loofah (2.20.0)
       crass (~> 1.0.2)

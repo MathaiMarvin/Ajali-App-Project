@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
     def create
-        user = User.create(userParams)
-        if user.valid?
+        user = User.create!(userParams)
+        if user
             save_user(user.id)
-            app_response(message: 'Registration was successful', status: :created, data: user)
+            render json: user, status: :created
         else
-            app_response(message: 'Something went wrong during registration', status: :unprocessable_entity, data: user.errors)
+            render json: {error: user.error}, status: :unprocessible_entity
         end
     end
+
     def login
         user = User.find_by(email: params[:email])
         if user&.authenticate(params[:password])
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
     private
 
     def userParams
-        params.require(:user).permit(:username,:email,:password, :role, :phone_number)
+        params.permit(:username,:email,:password,:phone_number)
     end
 
 end
