@@ -2,12 +2,12 @@ class IncidentsController < ApplicationController
     protect_from_forgery with: :null_session
 
     def index
-    incidents = Incident.all
+    incidents = user.incidents.all
     app_response(message: 'success', status: :ok, data: incidents)
     end
     
     def create
-    incident = Incident.create(incident_params)
+    incident = user.incidents.create(incident_params)
     if incident.valid?
     app_response(status: :created, data: incident)
     else
@@ -16,7 +16,7 @@ class IncidentsController < ApplicationController
     end
     
     def show
-    incident = Incident.find_by(id: params[:id])
+    incident = user.incidents.find_by(id: params[:id])
     if incident
     app_response(message: 'success', status: :ok, data: incident)
     else
@@ -25,7 +25,7 @@ class IncidentsController < ApplicationController
     end
     
     def update
-    incident = Incident.find_by(id: params[:id])
+    incident = user.incidents.find_by(id: params[:id])
     if incident.update(incident_params)
     app_response(message: 'Incident updated successfully', status: :ok, data: incident)
     else
@@ -34,7 +34,7 @@ class IncidentsController < ApplicationController
     end
     
     def destroy
-    incident = Incident.find_by(id: params[:id])
+    incident = user.incidents.find_by(id: params[:id])
     if incident
     incident.destroy
     app_response(message: 'Incident deleted successfully', status: :ok)
