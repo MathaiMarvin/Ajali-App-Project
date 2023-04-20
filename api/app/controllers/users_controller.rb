@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-end
-class UsersController < ApplicationController
     def create
         user = User.create(userParams)
         if user
