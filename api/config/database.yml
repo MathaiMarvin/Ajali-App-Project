@@ -86,6 +86,7 @@ development:
 #
 production:
   <<: *default
-  database: ajali_production
-  username: ajali
-  password: <%= ENV["AJALI_DATABASE_PASSWORD"] %>
+  # database: ajalidev
+  # username: student
+  # password: <%= ENV["AJALI_DATABASE_PASSWORD"] %>
+  url:  <%= ENV["DATABASE_URL"] %>
