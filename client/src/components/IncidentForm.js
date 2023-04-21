@@ -56,7 +56,8 @@ function IncidentForm(props) {
       videoUpload: null,
       geolocation: "",
     });
-    // setImageURL(null);
+    // setImageURL(null); // Reset image URL
+    // setVideoURL(null); // Reset video URL
   };
   useEffect(() => {
     axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${location},Kenya&key=d8e08d86813a4657bb5f4b35886dcea2`)
@@ -201,11 +202,11 @@ function IncidentForm(props) {
   <div className="card">
     <div className='card-text'>
     <p className='text-title'><span style={{ textTransform: 'uppercase' }}>{submittedData.title}</span></p>
-    <p style={{ color: 'orange' }}>ACCIDENT DATE: {submittedData.accidentDate}</p>
-    <p>DESCRIPTION:<span style={{ textTransform: 'capitalize' }}> {submittedData.description}</span></p>
-    <p>LOCATION: <span style={{ textTransform: 'capitalize' }}>{location} </span></p> 
-    <p>LATITUDE:    {latitude}</p> 
-    <p>LONGITUDE:   {longitude}</p> 
+    <p style={{ color: 'orange' }}><b>ACCIDENT DATE:</b> {submittedData.accidentDate}</p>
+    <p><b>DESCRIPTION:</b><span style={{ textTransform: 'capitalize' }}> {submittedData.description}</span></p>
+    <p> <b>LOCATION:</b> <span style={{ textTransform: 'capitalize' }}>{location} </span></p> 
+    <p> <b>LATITUDE: </b>  {latitude}</p> 
+    <p> <b>LONGITUDE: </b>  {longitude}</p> 
     
 </div>
 <div className='card-img'>

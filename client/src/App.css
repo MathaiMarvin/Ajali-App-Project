@@ -1,7 +1,7 @@
 /*..........................incident form*/
 .map-container{
     width: 100%;
-    height: 1800px;
+    height: 1500px;
     padding-left: 30px;
     padding-right: 5px;
   }
@@ -52,25 +52,27 @@
   }
 form img{
     height: 200px;
-    width: 200px;
-    margin-left: 140px;
+    width: 250px;
+    margin-left: 110px;
 }
-/* .card{
-
-} */
+form video{
+    height: 200px;
+    width: 250px;
+    margin-left: 110px;
+}
 .card-text{
 float: left;
-width: 700px;
+width: 800px;
 height: auto;
 /* background-color: rgb(122, 129, 168); */
-padding-left: 30px;
+padding-left: 150px;
 line-height: 30px;
 font-size: 20px;
 }
 .card-img{
 float: right;
 display: flex;
-margin-right: 520px;
+margin-right: 230px;
 }
 .card-img img{
     width: 300px;
