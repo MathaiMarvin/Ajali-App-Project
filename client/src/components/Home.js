@@ -8,7 +8,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState ({
-        email: "",
+        username: "",
         password: "",
     });
     const [isLoading, setIsLoading] = useState(false);
@@ -33,7 +33,7 @@ const Home = () => {
                 setIsLoading(false);
               });
             } else {
-              console.log("email or password incorrect");
+              console.log("username or password incorrect");
             }
           });
 
