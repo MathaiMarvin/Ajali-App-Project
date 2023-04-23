@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+    protect_from_forgery with: :null_session
     include ActionController::Cookies
     rescue_from StandardError, with: :standard_error
     # protect_from_forgery with: :null_session
