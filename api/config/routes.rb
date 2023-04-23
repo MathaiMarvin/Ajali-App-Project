@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/incidents', to: 'incidents#index'
   post '/incidents/create', to: 'incidents#create'
   delete '/incidents/:id', to: 'incidents#destroy'
-    get '/incidents/:id', to: 'incidents#show'
-    patch '/incidents/:id', to: 'incidents#update'
+  get '/incidents/:id', to: 'incidents#show'
+  patch '/incidents/:id', to: 'incidents#update'
 
 end
