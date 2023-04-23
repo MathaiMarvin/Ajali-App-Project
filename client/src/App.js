@@ -4,6 +4,7 @@ import './App.css';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import LandingPageClient from './components/LandingPageClient';
+import IncidentForm from './components/IncidentForm';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/landingpageclient' element={<LandingPageClient/>} />
+        <Route path='/report' element={<IncidentForm/>} />
       </Routes>
     </div>
   );
