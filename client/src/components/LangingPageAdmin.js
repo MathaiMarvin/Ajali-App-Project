@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 function LandingPageAdmin() {
-  const Url = "http://[::1]:3000/incidents";
+  const Url = "";
   const [incidents, setIncidents] = useState([]);
   useEffect(() => {
     fetch(Url)
@@ -31,7 +31,7 @@ function LandingPageAdmin() {
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>{Object.entries(incidents.data).map(([key, value]) => (
+        <tbody>{Object.entries(incidents).map(([key, value]) => (
           <tr key={key}>
           <td>{value.title}</td>
          <td>{value.description}</td>

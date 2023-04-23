@@ -106,7 +106,7 @@ function IncidentForm(props) {
   return (
     <div>
        <Navbar/>
-      <div className='report-heading'>INCIDENT  REPORT</div>
+      {/* <div className='report-heading'>INCIDENT  REPORT</div> */}
       <div className="map-container">
         <div className="report-content">
           
@@ -196,7 +196,7 @@ function IncidentForm(props) {
       </form>
       
       </div>
-      <div id="map" style={{ height: '1410px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
+      <div id="map" style={{ height: '1200px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
       </div>
       {submittedData && (
   <div className="card">

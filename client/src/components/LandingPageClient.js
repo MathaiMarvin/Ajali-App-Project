@@ -62,7 +62,7 @@ const LandingPageClient = () => {
       <p>Longitude: {longitude}</p> 
       </form> */}
       </div>
-      <div id="map" style={{ height: '1300px', width: '50%', float: 'right', margin: '20px', position: 'fixed',}}></div>
+      <div id="map" style={{ height: '1100px', width: '50%', float: 'right', margin: '20px', position: 'fixed',}}></div>
       </div>
         </div>
      );
