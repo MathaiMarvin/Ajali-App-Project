@@ -1,9 +1,12 @@
 class IncidentsController < ApplicationController
-    protect_from_forgery with: :null_session
+end
+class IncidentsController < ApplicationController
+    # protect_from_forgery with: :null_session
 
+    before_action :authorize
     def index
-    incidents = user.incidents.all
-    app_response(message: 'success', status: :ok, data: incidents)
+        incidents = user.incidents.all
+        app_response(message: 'success', status: :ok, data: incidents)
     end
     
     def create
