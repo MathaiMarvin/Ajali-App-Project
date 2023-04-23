@@ -1,4 +1,7 @@
+
 class UsersController < ApplicationController
+<<<<<<<<< Temporary merge branch 1
+=========
     def create
         user = User.create(userParams)
         if user
