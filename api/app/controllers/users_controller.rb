@@ -1,7 +1,5 @@
-
 class UsersController < ApplicationController
-<<<<<<<<< Temporary merge branch 1
-=========
+
     def create
         user = User.create(userParams)
         if user
@@ -11,6 +9,8 @@ class UsersController < ApplicationController
             render json: {error: user.error}, status: :unprocessible_entity
         end
     end
+
+  
 
     def login
         user = User.find_by(email: params[:email])
@@ -25,7 +25,9 @@ class UsersController < ApplicationController
     private
 
     def userParams
-        params.permit(:username,:email,:password,:phone_number)
+        params[:role] ||= "normal_user"
+        params.permit(:username,:email,:password, :role, :phone_number)
     end
 
 end
+
