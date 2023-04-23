@@ -61,7 +61,12 @@ const Home = () => {
                         </div>
                         {/* right container with form */}
                         <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
-                            <h1 className="text-base font-normal flex justify-center mb-5 border-b border-gray-100 uppercase pb-3"> Welcome to Ajali Report</h1>
+                            <h1 className="text-base font-normal flex justify-center mb-5 border-b border-gray-100 uppercase pb-3"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+
+                            Welcome Back</h1>
                             <form action="" onSubmit={(e) => handleLogin(e)}>
                                 {/* email input
                                 <div className="relative mb-6" data-te-input-wrapper-init>
@@ -145,6 +150,7 @@ const Home = () => {
                                     Log in
                                 </button>}
                                 {isLoading &&
+                                <div>
                                 <button
                                     type="submit"
                                     className="inline-block w-full rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
@@ -153,7 +159,16 @@ const Home = () => {
                                     data-te-ripple-color="light" disabled>
                                         {" "}
                                     Logging In ....
-                                </button>}
+                                </button>
+                                {/* <div
+                                className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-primary motion-reduce:animate-[spin_1.5s_linear_infinite] mt-3"
+                                role="status">
+                                <span
+                                    className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                                    >Loading...</span>
+                                </div> */}
+                              </div>
+                                }
                                  {/* Divider  */}
                                 <div
                                     className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
