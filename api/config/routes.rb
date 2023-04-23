@@ -13,6 +13,4 @@ Rails.application.routes.draw do
   delete '/incidents/:id', to: 'incidents#destroy'
   get '/incidents/:id', to: 'incidents#show'
   patch '/incidents/:id', to: 'incidents#update'
-
-
 end
