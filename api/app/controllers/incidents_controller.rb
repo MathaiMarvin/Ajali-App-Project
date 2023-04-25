@@ -10,6 +10,8 @@ class IncidentsController < ApplicationController
     
     def create
         incident = user.incidents.create(incident_params)
+        incident.image.attach(params[:incident][:image])
+        incident.video.attach(params[:incident][:video])
     if incident.valid?
         app_response(status: :created, data: incident)
     else
@@ -48,7 +50,7 @@ class IncidentsController < ApplicationController
     private
     
     def incident_params
-    params.require(:incident).permit(:title, :description, :status, :user_id )
+    params.require(:incident).permit(:title, :description, :status, :date, :location, :latitude, :longitude, :user_id )
     end
 end
 
