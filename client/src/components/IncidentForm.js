@@ -10,11 +10,11 @@ function IncidentForm(props) {
     date: "",
     description: "",
     status: "",
-    imageUpload: null,
-    videoUpload: null,
-    location: " ",
+    location: "",
     latitude: " ",
-    longitude: "",
+    longitude: " ",
+    image: null,
+    video: null,
   }); // set the default location here
   // const [submittedData, setSubmittedData] = useState(null);
   const [imageURL, setImageURL] = useState(null);
@@ -45,6 +45,10 @@ function IncidentForm(props) {
     event.preventDefault();
     console.log("Form data:", formData);
     try {
+      //Add the latitude and longitude to the form data
+      formData.latitude = latitude;
+      formData.longitude = longitude;
+      formData.location = location;
       // Send a POST request to the create endpoint with the form data
       const response = await axios.post("https://ajalireports.onrender.com/incidents/create", formData);
       // If the request is successful, you can access the created incident data
@@ -117,7 +121,7 @@ function IncidentForm(props) {
         className='input'
           type="date"
           id="accident-date"
-          name="accidentDate"
+          name="date"
           value={formData.date}
           onChange={handleInputChange}
           required
