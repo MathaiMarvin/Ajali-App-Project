@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+
+    
     # protect_from_forgery with: :null_session
     include ActionController::Cookies
     rescue_from StandardError, with: :standard_error
@@ -61,7 +63,30 @@ class ApplicationController < ActionController::API
         else
             # get token from headers
             token = auth_headers.split(' ')[1]
-            save_user_id(token)
+
+            begin
+                # decode token
+               decoded_token = decode(token)
+
+               # check token signarure, contents and expiration
+               unless decoded_token[0]['exp'] >= Time.now.to_i
+                app_response(message: 'failed', status: 401, data: { info: 'Token has expired' })
+                return
+              end
+
+              unless decoded_token[0]['data']['uid'] == save_user_id(token)
+                app_response(message: 'failed', status: 401, data: { info: 'Invalid token' })
+                return
+              end
+
+                rescue JWT::DecodeError => e
+                app_response(message: 'failed', status: 401, data: { info: 'Invalid token' })
+                return
+              end
+
+            end
+        end
+
             # render json: {
             #     data: decode(token)
             # }

@@ -58,8 +58,8 @@
 class IncidentsController < ApplicationController
     # protect_from_forgery with: :null_session
   
-    # before_action :verify_auth
-    # before_action :check_blacklist
+    before_action :verify_auth
+    before_action :check_blacklist
     
     def index
       incidents = user.incidents.all
