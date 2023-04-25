@@ -128,7 +128,11 @@ class ApplicationController < ActionController::API
     
          # Finding the user that is logged in using uid
          def user
+            if @uid.present?
             User.find(@uid)
+            else
+                nil
+            end
          end
 
     # rescue all common errors
