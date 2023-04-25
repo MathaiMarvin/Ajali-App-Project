@@ -10,34 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_21_103109) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_073534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "geolocations", force: :cascade do |t|
-    t.bigint "incidents_id", null: false
-    t.float "latitude", null: false
-    t.float "longitude", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["incidents_id"], name: "index_geolocations_on_incidents_id"
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.string "image"
-    t.bigint "incidents_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["incidents_id"], name: "index_images_on_incidents_id"
-  end
 
   create_table "incidents", force: :cascade do |t|
     t.string "title", null: false
     t.string "description", null: false
+    t.string "status", null: false
+    t.date "date", null: false
+    t.string "location", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "image"
+    t.string "video"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", default: 0, null: false
     t.index ["user_id"], name: "index_incidents_on_user_id"
   end
 
@@ -51,16 +40,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_103109) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "videos", force: :cascade do |t|
-    t.string "video"
-    t.bigint "incidents_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["incidents_id"], name: "index_videos_on_incidents_id"
-  end
-
-  add_foreign_key "geolocations", "incidents", column: "incidents_id"
-  add_foreign_key "images", "incidents", column: "incidents_id"
   add_foreign_key "incidents", "users"
-  add_foreign_key "videos", "incidents", column: "incidents_id"
 end
