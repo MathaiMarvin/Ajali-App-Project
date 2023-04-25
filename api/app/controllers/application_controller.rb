@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
 
     
     # protect_from_forgery with: :null_session
-    include ActionController::Cookies
+    # include ActionController::Cookies
     rescue_from StandardError, with: :standard_error
     # protect_from_forgery with: :null_session
     def app_response(message: 'success', status: 200, data: nil)
