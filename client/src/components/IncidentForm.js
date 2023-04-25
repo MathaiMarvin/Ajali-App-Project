@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import Navbar from './Navbar';
-
-
 function IncidentForm(props) {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
@@ -16,19 +14,16 @@ function IncidentForm(props) {
     videoUpload: null,
     geolocation: "",
   }); // set the default location here
-  const [submittedData, setSubmittedData] = useState(null);
+  // const [submittedData, setSubmittedData] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [videoURL, setVideoURL] = useState(null); // new state variable for video URL
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
   const handleFileChange = (event) => {
     const { name, files } = event.target;
     setFormData({ ...formData, [name]: files[0] });
-
      if (event.target.accept === "video/*") {
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -44,21 +39,19 @@ function IncidentForm(props) {
       reader.readAsDataURL(files[0]);
     }
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Form data:", formData);
-    setSubmittedData(formData);
-    setFormData({
-      title: "",
-      accidentDate: "",
-      description: "",
-      status: "",
-      imageUpload: null,
-      videoUpload: null,
-      geolocation: "",
-    });
-    // setImageURL(null); // Reset image URL
-    // setVideoURL(null); // Reset video URL
+    try {
+      // Send a POST request to the create endpoint with the form data
+      const response = await axios.post("https://ajalireports.onrender.com/incidents/create", formData);
+      // If the request is successful, you can access the created incident data
+      const incidentData = response.data;
+      // Handle success or update the UI as needed
+      console.log("Incident created:", incidentData);
+    } catch (error) {
+      console.error("Failed to create incident:", error);
+    }
   };
   useEffect(() => {
     axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${location},Kenya&key=d8e08d86813a4657bb5f4b35886dcea2`)
@@ -70,7 +63,6 @@ function IncidentForm(props) {
         console.log(error);
       });
   }, [location]);
-
   useEffect(() => {
     if (latitude && longitude) {
       const mapOptions = {
@@ -79,7 +71,6 @@ function IncidentForm(props) {
       };
       const mapElement = document.getElementById('map');
       const newMap = new window.google.maps.Map(mapElement, mapOptions);
-
       new window.google.maps.Marker({
         position: { lat: latitude, lng: longitude },
         map: newMap,
@@ -101,16 +92,13 @@ function IncidentForm(props) {
           });
       });
     }
-    
   }, [latitude, longitude]);
-
   return (
     <div>
        <Navbar/>
       {/* <div className='report-heading'>INCIDENT  REPORT</div> */}
       <div className="map-container">
         <div className="report-content">
-          
         <form className='report' onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
         <input
@@ -122,7 +110,6 @@ function IncidentForm(props) {
           onChange={handleInputChange}
           required
         />
-
         <label htmlFor="accident-date">Accident Date:</label>
         <input
         className='input'
@@ -133,7 +120,6 @@ function IncidentForm(props) {
           onChange={handleInputChange}
           required
         />
-
         <label htmlFor="description">Description:</label>
         <textarea
         className='input'
@@ -143,7 +129,6 @@ function IncidentForm(props) {
           onChange={handleInputChange}
           required
         ></textarea>
-
         <label htmlFor="status">Status:</label>
         <select
           id="status"
@@ -157,7 +142,6 @@ function IncidentForm(props) {
           <option value="in-progress">In Progress</option>
           <option value="resolved">Resolved</option>
         </select>
-
         <label htmlFor="imageUpload">Image Upload</label>
         <input
           type="file"
@@ -186,54 +170,16 @@ function IncidentForm(props) {
             <video src={videoURL} controls width="200" />
           </div>
         )}
-  
         <label htmlFor="geolocation">Geolocation:</label>
         <input className='input' type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
         <p>Latitude: {latitude}</p>
-      <p>Longitude: {longitude}</p> 
-   
-
+      <p>Longitude: {longitude}</p>
         <button className="submit-btn"type="submit" value="Submit" > Submit </button>
       </form>
-      
       </div>
-      <div id="map" style={{ height: '1200px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
+      <div id="map" style={{ height: '785px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
       </div>
-      {submittedData && (
-  <div className="card">
-    <div className='card-text'>
-    <p className='text-title'><span style={{ textTransform: 'uppercase' }}>{submittedData.title}</span></p>
-    <p style={{ color: 'orange' }}><b>ACCIDENT DATE:</b> {submittedData.accidentDate}</p>
-    <p><b>DESCRIPTION:</b><span style={{ textTransform: 'capitalize' }}> {submittedData.description}</span></p>
-    <p> <b>LOCATION:</b> <span style={{ textTransform: 'capitalize' }}>{location} </span></p> 
-    <p> <b>LATITUDE: </b>  {latitude}</p> 
-    <p> <b>LONGITUDE: </b>  {longitude}</p> 
-    
-</div>
-<div className='card-img'>
-{imageURL && (
-  <div>
- 
-    {/* <img src={imageURL} alt="Uploaded" width="300" height="800" /> */}
-    <img src={imageURL} alt="Uploaded"  /> 
-  </div>
-)}
-    
-    {/* <img src={imageURL} alt="Uploaded" /> */}
-
-          {videoURL && (
-            <div>
-             
-              {/* <video src={videoURL} controls width="100" height="200" /> */}
-              <video src={videoURL} controls />
-            </div>
-          )}
- 
-</div>
-  </div>
-)}
     </div>
   );
 }
-
 export default IncidentForm;
