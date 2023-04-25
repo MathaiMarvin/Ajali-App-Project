@@ -7,12 +7,14 @@ function IncidentForm(props) {
   const [location, setLocation] = useState('Nairobi');
   const [formData, setFormData] = useState({
     title: "",
-    accidentDate: "",
+    date: "",
     description: "",
     status: "",
     imageUpload: null,
     videoUpload: null,
-    geolocation: "",
+    location: " ",
+    latitude: " ",
+    longitude: "",
   }); // set the default location here
   // const [submittedData, setSubmittedData] = useState(null);
   const [imageURL, setImageURL] = useState(null);
@@ -110,13 +112,13 @@ function IncidentForm(props) {
           onChange={handleInputChange}
           required
         />
-        <label htmlFor="accident-date">Accident Date:</label>
+        <label htmlFor="accident-date">Incident Date:</label>
         <input
         className='input'
           type="date"
           id="accident-date"
           name="accidentDate"
-          value={formData.accidentDate}
+          value={formData.date}
           onChange={handleInputChange}
           required
         />
