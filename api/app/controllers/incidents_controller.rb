@@ -1,7 +1,7 @@
 class IncidentsController < ApplicationController
     # protect_from_forgery with: :null_session
 
-    before_action :authorize, except: [:index]
+    # before_action :authorize, except: [:index]
     
     def index
         incidents =Incident.all
