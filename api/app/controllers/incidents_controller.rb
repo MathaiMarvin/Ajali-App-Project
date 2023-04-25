@@ -9,12 +9,12 @@ class IncidentsController < ApplicationController
     end
     
     def create
-    incident = user.incidents.create(incident_params)
+        incident = user.incidents.create(incident_params)
     if incident.valid?
-    app_response(status: :created, data: incident)
+        app_response(status: :created, data: incident)
     else
-    app_response(status: :unprocessable_entity, data: incident.errors, message: 'failed')
-    end
+        app_response(status: :unprocessable_entity, data: incident.errors, message: 'failed')
+        end
     end
     
     def show
