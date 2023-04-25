@@ -62,18 +62,18 @@ class IncidentsController < ApplicationController
     before_action :check_blacklist
     
     def index
-      incidents = Incident.all
+      incidents = user.incidents.all
       app_response(message: 'success', status: :ok, data: incidents)
     end
     
     def create
-      incident = user.incidents.new(incident_params)
+      incident = user.incidents.build(incident_params)
       incident.image.attach(params[:incident][:image])
       incident.video.attach(params[:incident][:video])
       if incident.save
         app_response(status: :created, data: incident)
       else
-        app_response(status: :unprocessable_entity, data: incident.errors, message: 'failed')
+        app_response(status: :unprocessable_entity, data: incident.errors.full_messages, message: 'failed')
       end
     end
     
