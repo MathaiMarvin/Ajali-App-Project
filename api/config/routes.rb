@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
   get '/incidents', to: 'incidents#index'
   post '/incidents/create', to: 'incidents#create'
   delete '/incidents/:id', to: 'incidents#destroy'

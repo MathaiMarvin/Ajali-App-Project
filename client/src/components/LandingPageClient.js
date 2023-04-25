@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import IncidentList from "./IncidentList";
 
 
 const LandingPageClient = () => {
@@ -53,8 +54,11 @@ const LandingPageClient = () => {
     return ( 
         <div>
             <Navbar/>
+            
             <div className="map-container">
+          
             <div className="report-content">
+            <IncidentList/>
             {/* <form>
             <label htmlFor="geolocation">Geolocation: </label>
         <input type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
@@ -62,6 +66,7 @@ const LandingPageClient = () => {
       <p>Longitude: {longitude}</p> 
       </form> */}
       </div>
+     
       <div id="map" style={{ height: '1100px', width: '50%', float: 'right', margin: '20px', position: 'fixed',}}></div>
       </div>
         </div>
