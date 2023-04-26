@@ -2966,3 +2966,606 @@ Migrating to CreateBlacklist (20230425114040)
   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6663567939080772405)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users/register" for 127.0.0.1 at 2023-04-26 08:19:59 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/marvin/Development/code/ajali/api/app/controllers/application_controller.rb:95: syntax error, unexpected `end', expecting end-of-input
+    end
+    ^~~
+):
+  
+app/controllers/application_controller.rb:95: syntax error, unexpected `end', expecting end-of-input
+app/controllers/application_controller.rb:95: syntax error, unexpected `end', expecting end-of-input
+app/controllers/application_controller.rb:95: syntax error, unexpected `end', expecting end-of-input
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/users/register" for 127.0.0.1 at 2023-04-26 08:20:45 +0300
+  
+SyntaxError (/home/marvin/Development/code/ajali/api/app/controllers/application_controller.rb:142: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/application_controller.rb:142: syntax error, unexpected `end', expecting end-of-input
+app/controllers/application_controller.rb:142: syntax error, unexpected `end', expecting end-of-input
+app/controllers/application_controller.rb:142: syntax error, unexpected `end', expecting end-of-input
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/users/register" for 127.0.0.1 at 2023-04-26 08:30:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"mat", "email"=>"mat@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"mat@gmail.com", "username"=>"mat"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fddd0081c08>, params: {"username"=>"mat", "email"=>"mat@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"mat@gmail.com", "username"=>"mat"}} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mat"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mat@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "role", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "mat@gmail.com"], ["username", "mat"], ["password_digest", "[FILTERED]"], ["role", "0"], ["phone_number", nil], ["created_at", "2023-04-26 05:30:36.692117"], ["updated_at", "2023-04-26 05:30:36.692117"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "mat"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mat@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 237ms (Views: 0.4ms | ActiveRecord: 8.9ms | Allocations: 24002)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2023-04-26 08:30:55 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"mathai", "email"=>"mathai@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"mathai@gmail.com", "username"=>"mathai"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00005647740afcc8>, params: {"username"=>"mathai", "email"=>"mathai@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"mathai@gmail.com", "username"=>"mathai"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mathai"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mathai@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "role", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "mathai@gmail.com"], ["username", "mathai"], ["password_digest", "[FILTERED]"], ["role", "0"], ["phone_number", nil], ["created_at", "2023-04-26 05:30:56.119563"], ["updated_at", "2023-04-26 05:30:56.119563"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "mathai"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mathai@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 226ms (Views: 0.5ms | ActiveRecord: 10.4ms | Allocations: 23991)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-26 08:31:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"mathai", "email"=>"mathai@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"mathai@gmail.com", "username"=>"mathai"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x0000564772c2a078>, params: {"username"=>"mathai", "email"=>"mathai@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"mathai@gmail.com", "username"=>"mathai"}} }[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mathai') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x0000564772c2a078>, params: {"username"=>"mathai", "email"=>"mathai@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"mathai@gmail.com", "username"=>"mathai"}} }[0m
+Completed 200 OK in 223ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 18206)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 08:38:40 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>1, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>1}}
+Filter chain halted as :verify_auth rendered or redirected
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 6.0ms | Allocations: 153)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 08:39:02 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>1, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>1}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 509)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 08:43:12 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>1, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>1}}
+Filter chain halted as :verify_auth rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 643)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-26 08:44:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"mathai", "email"=>"mathai@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"mathai@gmail.com", "username"=>"mathai"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f848cadbed0>, params: {"username"=>"mathai", "email"=>"mathai@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"mathai@gmail.com", "username"=>"mathai"}} }[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mathai') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f848cadbed0>, params: {"username"=>"mathai", "email"=>"mathai@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"mathai@gmail.com", "username"=>"mathai"}} }[0m
+Completed 200 OK in 217ms (Views: 0.5ms | ActiveRecord: 3.5ms | Allocations: 18205)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 08:44:39 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>2, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>2}}
+Filter chain halted as :verify_auth rendered or redirected
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 476)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 08:44:48 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>2, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>2}}
+Filter chain halted as :verify_auth rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 507)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 08:44:53 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>2, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>2}}
+Filter chain halted as :verify_auth rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 507)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2023-04-26 09:04:01 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"kj", "email"=>"kj@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"kj@gmail.com", "username"=>"kj"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00005626a6b8ee80>, params: {"username"=>"kj", "email"=>"kj@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"kj@gmail.com", "username"=>"kj"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kj"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kj@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "role", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "kj@gmail.com"], ["username", "kj"], ["password_digest", "[FILTERED]"], ["role", "0"], ["phone_number", nil], ["created_at", "2023-04-26 06:04:01.584869"], ["updated_at", "2023-04-26 06:04:01.584869"]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "kj"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "kj@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in `create'
+Completed 201 Created in 228ms (Views: 0.5ms | ActiveRecord: 11.8ms | Allocations: 23818)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-26 09:06:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant SessionsController
+Did you mean?  SessionController):
+  
+Started POST "/users/login" for 127.0.0.1 at 2023-04-26 09:07:08 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"kj", "email"=>"kj@gmail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"kj", "email"=>"kj@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kj"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 5.7ms | Allocations: 22253)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:08:21 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2279)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:09:23 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 3956)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:11:53 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+Completed 422 Unprocessable Entity in 9ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 3778)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:12:10 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (1.8ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:12:10.588480"], ["updated_at", "2023-04-26 06:12:10.588480"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+Completed 422 Unprocessable Entity in 70ms (Views: 0.2ms | ActiveRecord: 11.6ms | Allocations: 54132)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:16:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20230426061451_create_active_storage_tables.active_storage.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:93:in `execute_if_updated'
+activerecord (7.0.4.3) lib/active_record/migration.rb:599:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6663567939080772405)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20230426061451)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230426061451"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6663567939080772405)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:17:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (0.8ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:17:12.011004"], ["updated_at", "2023-04-26 06:17:12.011004"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Incident"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Incident"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 15.4ms | Allocations: 48120)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/application_controller.rb:6:in `app_response'
+app/controllers/incidents_controller.rb:71:in `create'
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:18:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (0.8ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:18:14.030906"], ["updated_at", "2023-04-26 06:18:14.030906"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Incident"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Incident"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 18.1ms | Allocations: 64536)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/application_controller.rb:6:in `app_response'
+app/controllers/incidents_controller.rb:71:in `create'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6663567939080772405)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20230426061451)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "active_storage_blobs"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230426061451"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6663567939080772405)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:20:32 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20230426061451_create_active_storage_tables.active_storage.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:20:47 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (0.9ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:20:48.059782"], ["updated_at", "2023-04-26 06:20:48.059782"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+Completed 422 Unprocessable Entity in 60ms (Views: 0.3ms | ActiveRecord: 10.8ms | Allocations: 52189)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-26 09:22:55 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"kj", "password"=>"[FILTERED]", "session"=>{"username"=>"kj", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kj"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 672)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:23:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (0.8ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:23:46.297725"], ["updated_at", "2023-04-26 06:23:46.297725"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+Completed 422 Unprocessable Entity in 45ms (Views: 0.3ms | ActiveRecord: 9.8ms | Allocations: 52178)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6663567939080772405)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20230426062801)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230426062801"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6663567939080772405)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:28:27 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (0.5ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:28:27.922558"], ["updated_at", "2023-04-26 06:28:27.922558"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Incident"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Incident"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 9.7ms | Allocations: 29423)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/application_controller.rb:6:in `app_response'
+app/controllers/incidents_controller.rb:71:in `create'
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:33:34 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (0.9ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:33:34.808449"], ["updated_at", "2023-04-26 06:33:34.808449"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Incident"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Incident"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 17.5ms | Allocations: 64431)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/application_controller.rb:6:in `app_response'
+app/controllers/incidents_controller.rb:71:in `create'
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:37:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (0.9ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:37:21.348528"], ["updated_at", "2023-04-26 06:37:21.348528"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Incident"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Incident"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 16.6ms | Allocations: 64535)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/incidents_controller.rb:71:in `create'
+Started POST "/incidents/create" for 127.0.0.1 at 2023-04-26 09:40:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2005-06-07", "description"=>"cvcwcq", "latitude"=>-1.19402, "location"=>"unnamed road, Ndenderu", "longitude"=>36.74471, "status"=>"resolved", "title"=>"shxcqscxwqc", "user_id"=>3, "incident"=>{"title"=>"shxcqscxwqc", "description"=>"cvcwcq", "status"=>"resolved", "date"=>"2005-06-07", "location"=>"unnamed road, Ndenderu", "latitude"=>-1.19402, "longitude"=>36.74471, "user_id"=>3}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:70:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:70:in `create'
+  [1m[36mIncident Create (0.8ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "image", "video", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "shxcqscxwqc"], ["description", "cvcwcq"], ["status", "2"], ["date", "2005-06-07"], ["location", "unnamed road, Ndenderu"], ["latitude", -1.19402], ["longitude", 36.74471], ["image", nil], ["video", nil], ["user_id", 3], ["created_at", "2023-04-26 06:40:11.482523"], ["updated_at", "2023-04-26 06:40:11.482523"]]
+  ↳ app/controllers/incidents_controller.rb:70:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Incident"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:70:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Incident"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:70:in `create'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:70:in `create'
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 16.4ms | Allocations: 61964)
+
+
+  
+SystemStackError (stack level too deep):
+  
+app/controllers/incidents_controller.rb:71:in `create'

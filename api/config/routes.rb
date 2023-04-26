@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  post "/users/login", to: "users#login"
+  post "/users/login", to: "sessions#create"
   post "/users/register", to:"users#create"
+  delete "/users/logout", to: "session#destroy"
+  get 'users/check', to: "session#check"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

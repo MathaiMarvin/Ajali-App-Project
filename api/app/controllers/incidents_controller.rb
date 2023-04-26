@@ -56,10 +56,7 @@
 
     
 class IncidentsController < ApplicationController
-    # protect_from_forgery with: :null_session
   
-    before_action :verify_auth
-    before_action :check_blacklist
     
     def index
       incidents = user.incidents.all
@@ -67,13 +64,13 @@ class IncidentsController < ApplicationController
     end
     
     def create
-      incident = user.incidents.build(incident_params)
+      incident = Incident.new(incident_params)
       incident.image.attach(params[:incident][:image])
       incident.video.attach(params[:incident][:video])
       if incident.save
-        app_response(status: :created, data: incident)
+        render json: { message: 'success', data: incident }, status: :created
       else
-        app_response(status: :unprocessable_entity, data: incident.errors.full_messages, message: 'failed')
+        render json: { message: 'failed', data: incident.errors.full_messages }, status: :unprocessable_entity
       end
     end
     
