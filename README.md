@@ -38,7 +38,7 @@ To get started with the Ajali! project, clone the repository to your local machi
 
 #INITIALIZATION
 Copy code
-git clone https://github.com/your-username/ajali.git
+git clone https://github.com/MathaiMarvin/ajali.git
 Once you have cloned the repository, you can navigate to the project directory and install the dependencies:
 cd ajali
 bundle install
