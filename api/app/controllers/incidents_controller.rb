@@ -65,8 +65,6 @@ class IncidentsController < ApplicationController
     
     def create
       incident = Incident.new(incident_params)
-      incident.image.attach(params[:incident][:image])
-      incident.video.attach(params[:incident][:video])
       if incident.save
         render json: { message: 'success', data: incident }, status: :created
       else
@@ -105,7 +103,7 @@ class IncidentsController < ApplicationController
     private
     
     def incident_params
-      params.require(:incident).permit(:title, :description, :status, :date, :location, :latitude, :longitude, :user_id, image: {}, video: {})
+      params.require(:incident).permit(:title, :description, :status, :date, :location, :latitude, :longitude, :user_id)
     end
   end
   
