@@ -1,8 +1,10 @@
+// 
 import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import image from "../img/roadaccident.jpg"
 import imgtestimonial2 from "../img/testimonial2.jpeg"
 import '../index.css'
+import TawkTo from "./TawkTo";
 
 const Home = () => {
     // const navigate = useNavigate();
@@ -42,51 +44,9 @@ const Home = () => {
     //       }
     //     });
     //   };  
-//     const navigate = useNavigate();
+    const navigate = useNavigate();
 
-// const [formData, setFormData] = useState ({
-//   username: "",
-//   password: "",
-//   role: "",
-// });
-// const [isLoading, setIsLoading] = useState(false);
-
-// const handleLogin = (e) => {
-//   e.preventDefault();
-//   setIsLoading(true);
-
-//   fetch("https://ajalireports.onrender.com/users/login", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(formData),
-//   }).then((response) => {
-//     if (response.ok) {
-//       response.json().then((data) => {
-//         localStorage.setItem("session", data.session);
-//         localStorage.setItem("user", JSON.stringify(data.user));
-//         console.log("Welcome");
-//         console.log(data);
-//         if (user.role === "admin") {
-//           navigate("/admin");
-//         } else if (data.role === "normal_user") {
-//           navigate("/landingpageclient");
-//         } else {
-//           console.log("Unauthorized access");
-//         }
-//         setIsLoading(false);
-//       });
-//     } else {
-//       console.log("username or password incorrect");
-//     }
-//   });
-// };
-
-
-const navigate = useNavigate();
-
-const [formData, setFormData] = useState({
+const [formData, setFormData] = useState ({
   username: "",
   password: "",
   role: "",
@@ -110,9 +70,9 @@ const handleLogin = (e) => {
         localStorage.setItem("user", JSON.stringify(data.user));
         console.log("Welcome");
         console.log(data);
-        if (data.user && data.user.role === "admin") {
+        if (data.role === "admin") {
           navigate("/admin");
-        } else if (data.user && data.user.role === "normal_user") {
+        } else if (data.role === "normal_user") {
           navigate("/landingpageclient");
         } else {
           console.log("Unauthorized access");
@@ -613,7 +573,7 @@ const handleLogin = (e) => {
                 </div>
                 </footer>
 
-
+                <TawkTo/>
         </div>
      );
 }

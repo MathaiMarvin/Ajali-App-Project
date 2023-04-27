@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import React, { useState, useEffect } from "react";
+import TawkTo from "./TawkTo";
 import axios from 'axios';
 
 const LandingPageClient = () => {
@@ -150,6 +151,7 @@ useEffect(() => {
 
                 </div>
                 </div>
+                <TawkTo/>
             </div>
         </div>
       
