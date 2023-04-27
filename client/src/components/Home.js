@@ -5,67 +5,86 @@ import imgtestimonial2 from "../img/testimonial2.jpeg"
 import '../index.css'
 
 const Home = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const [formData, setFormData] = useState ({
-        username: "",
-        password: "",
-    });
-    const [isLoading, setIsLoading] = useState(false);
-
+    // const [formData, setFormData] = useState ({
+    //     username: "",
+    //     password: "",
+    //     role: "",
+    // });
+    // const [isLoading, setIsLoading] = useState(false);
     // const handleLogin = (e) => {
     //     e.preventDefault();
     //     setIsLoading(true);
-
-    //     fetch("https://ajalireports.onrender.com/users/login", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(formData),
-    //     }).then((response) => {
-    //         if (response.ok) {
-    //           response.json().then((data) => {
-    //             localStorage.setItem("token", data.token);
-    //             localStorage.setItem("user", JSON.stringify(data.user));
-    //             console.log('Welcome')
-    //             navigate("/landingpageclient");
-    //             setIsLoading(false);
-    //           });
-    //         } else {
-    //           console.log("username or password incorrect");
-    //         }
-    //       });
-
-    // };
-    const handleLogin = (e) => {
-        e.preventDefault();
-        setIsLoading(true);
       
-        fetch("https://ajalireports.onrender.com/users/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }).then((response) => {
-          if (response.ok) {
-            response.json().then((data) => {
-              localStorage.setItem("session", data.session);
-              localStorage.setItem("user", JSON.stringify(data.user));
-              console.log("Welcome");
-              if (data.user.role === "admin") {
-                navigate("/admin");
-              } else {
-                navigate("/landingpageclient");
-              }
-              setIsLoading(false);
-            });
-          } else {
-            console.log("username or password incorrect");
-          }
-        });
-      };      
+    //     fetch("https://ajalireports.onrender.com/users/login", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify(formData),
+    //     }).then((response) => {
+    //       if (response.ok) {
+    //         response.json().then((data) => {
+    //           localStorage.setItem("session", data.session);
+    //           localStorage.setItem("user", JSON.stringify(data.user));
+    //           console.log("Welcome");
+    //           console.log(data)
+    //           if (data.role === "admin") {
+    //             navigate("/admin");
+    //           } else {
+    //             navigate("/landingpageclient");
+    //           }
+    //           setIsLoading(false);
+    //         });
+    //       } else {
+    //         console.log("username or password incorrect");
+    //       }
+    //     });
+    //   };  
+    const navigate = useNavigate();
+
+const [formData, setFormData] = useState ({
+  username: "",
+  password: "",
+  role: "",
+});
+const [isLoading, setIsLoading] = useState(false);
+
+const handleLogin = (e) => {
+  e.preventDefault();
+  setIsLoading(true);
+
+  fetch("https://ajalireports.onrender.com/users/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  }).then((response) => {
+    if (response.ok) {
+      response.json().then((data) => {
+        localStorage.setItem("session", data.session);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        console.log("Welcome");
+        console.log(data);
+        if (data.role === "admin") {
+          navigate("/admin");
+        } else if (data.role === "normal_user") {
+          navigate("/landingpageclient");
+        } else {
+          console.log("Unauthorized access");
+        }
+        setIsLoading(false);
+      });
+    } else {
+      console.log("username or password incorrect");
+    }
+  });
+};
+
+
+        
     return ( 
         <div>
             <nav
@@ -139,6 +158,22 @@ const Home = () => {
                                     >Password
                                     </label>
                                 </div>
+                                {/* role */}
+                                <div className="relative mb-6" data-te-input-wrapper-init>
+                                    <select
+                                        className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                        id="exampleFormControlInput33"
+                                        onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                                    >
+                                        <option value="" disabled selected>
+                                            Choose a role
+                                        </option>
+                                        <option value="admin" className="font-normal">Admin</option>
+                                        <option value="normal_user" className="font-normal">Normal User</option>
+                                    </select>
+                                </div>
+
+
 
                                 {/* Remember me checkbox */}
                                 {/* <div className="mb-6 flex items-center justify-between">

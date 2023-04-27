@@ -3926,3 +3926,11 @@ Processing by IncidentsController#create as */*
 Completed 201 Created in 54ms (Views: 0.5ms | ActiveRecord: 10.0ms | Allocations: 44478)
 
 
+Started GET "/ws" for ::1 at 2023-04-27 22:13:18 +0300
+Started GET "/ws" for ::1 at 2023-04-27 22:13:18 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
