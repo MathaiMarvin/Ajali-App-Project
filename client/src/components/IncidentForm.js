@@ -15,29 +15,9 @@ function IncidentForm(props) {
     longitude: " ",
   }); // set the default location here
   const [submittedData, setSubmittedData] = useState(null);
-  const [imageURL, setImageURL] = useState(null);
-  const [videoURL, setVideoURL] = useState(null); // new state variable for video URL
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-  };
-  const handleFileChange = (event) => {
-    const { name, files } = event.target;
-    setFormData({ ...formData, [name]: files[0] });
-     if (event.target.accept === "video/*") {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          setVideoURL(e.target.result);
-        };
-        reader.readAsDataURL(files[0]);
-      }
-   else if (event.target.accept === "image/*") {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setImageURL(e.target.result);
-      };
-      reader.readAsDataURL(files[0]);
-    }
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -113,6 +93,104 @@ function IncidentForm(props) {
       });
     }
   }, [latitude, longitude]);
+// const [latitude, setLatitude] = useState(null);
+// const [longitude, setLongitude] = useState(null);
+// const [location, setLocation] = useState('');
+// const [formData, setFormData] = useState({
+//   title: '',
+//   date: '',
+//   description: '',
+//   status: '',
+//   location: '',
+//   latitude: '',
+//   longitude: '',
+// });
+// const [submittedData, setSubmittedData] = useState(null);
+
+// const handleInputChange = (event) => {
+//   const { name, value } = event.target;
+//   setFormData({ ...formData, [name]: value });
+// };
+
+
+// const handleSubmit = async (event) => {
+//   event.preventDefault();
+//   console.log('Form data:', formData);
+//   try {
+//     formData.latitude = latitude;
+//     formData.longitude = longitude;
+//     formData.location = location;
+//     const response = await axios.post('https://ajalireports.onrender.com/incidents/create', formData);
+//     const incidentData = response.data;
+//     console.log('Incident created:', incidentData);
+//   } catch (error) {
+//     console.error('Failed to create incident:', error);
+//   }
+// };
+
+// useEffect(() => {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(
+//       (position) => {
+//         setLatitude(position.coords.latitude);
+//         setLongitude(position.coords.longitude);
+//       },
+//       (error) => {
+//         console.log(error);
+//       }
+//     );
+//   } else {
+//     console.log('Geolocation is not supported by this browser.');
+//   }
+// }, []);
+// useEffect(() => {
+//   if (latitude && longitude) {
+//     axios
+//       .get(
+//         `https://api.opencagedata.com/geocode/v1/json?q=${latitude},${longitude}&key=d8e08d86813a4657bb5f4b35886dcea2`
+//       )
+//       .then((response) => {
+//         setLocation(response.data.results[0].formatted);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   }
+// }, [latitude, longitude]);
+// useEffect(() => {
+//   if (latitude && longitude) {
+//     const mapOptions = {
+//       center: { lat: latitude, lng: longitude },
+//       zoom: 10,
+//     };
+//     const mapElement = document.getElementById('map');
+//     const newMap = new window.google.maps.Map(mapElement, mapOptions);
+
+//     new window.google.maps.Marker({
+//       position: { lat: latitude, lng: longitude },
+//       map: newMap,
+//       title: 'Current location',
+//     });
+//     newMap.addListener('click', (event) => {
+//       const clickedLatitude = event.latLng.lat();
+//       const clickedLongitude = event.latLng.lng();
+//       setLatitude(clickedLatitude);
+//       setLongitude(clickedLongitude);
+//       axios
+//         .get(
+//           `https://api.opencagedata.com/geocode/v1/json?q=${clickedLatitude},${clickedLongitude}&key=d8e08d86813a4657bb5f4b35886dcea2`
+//         )
+//         .then((response) => {
+//           setLocation(response.data.results[0].formatted);
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         });
+//     });
+//   }
+// }, [latitude, longitude]);
+
+
   return (
     <div>
        <Navbar/>
@@ -162,34 +240,7 @@ function IncidentForm(props) {
           <option value="rejected">rejected</option>
           <option value="resolved">resolved</option>
         </select>
-        <label htmlFor="imageUpload">Image Upload</label>
-        <input
-          type="file"
-          id="imageUpload"
-          name="imageUpload"
-          accept="image/*"
-          onChange={handleFileChange}
-        />
-        {imageURL && (
-          <div>
-            <h3>Preview:</h3>
-            <img src={imageURL} alt="Uploaded" width="200" />
-          </div>
-        )}
-        <label htmlFor="videoUpload">Video Upload</label>
-        <input
-          type="file"
-          id="videoUpload"
-          name="videoUpload"
-          accept="video/*"
-          onChange={handleFileChange}
-        />
-        {videoURL && (
-          <div>
-            <h3>Preview:</h3>
-            <video src={videoURL} controls width="200" />
-          </div>
-        )}
+
         <label htmlFor="geolocation">Geolocation:</label>
         <input className='input' type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
         <p>Latitude: {latitude}</p>

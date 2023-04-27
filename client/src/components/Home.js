@@ -13,31 +13,59 @@ const Home = () => {
     });
     const [isLoading, setIsLoading] = useState(false);
 
+    // const handleLogin = (e) => {
+    //     e.preventDefault();
+    //     setIsLoading(true);
+
+    //     fetch("https://ajalireports.onrender.com/users/login", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(formData),
+    //     }).then((response) => {
+    //         if (response.ok) {
+    //           response.json().then((data) => {
+    //             localStorage.setItem("token", data.token);
+    //             localStorage.setItem("user", JSON.stringify(data.user));
+    //             console.log('Welcome')
+    //             navigate("/landingpageclient");
+    //             setIsLoading(false);
+    //           });
+    //         } else {
+    //           console.log("username or password incorrect");
+    //         }
+    //       });
+
+    // };
     const handleLogin = (e) => {
         e.preventDefault();
         setIsLoading(true);
-
+      
         fetch("https://ajalireports.onrender.com/users/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         }).then((response) => {
-            if (response.ok) {
-              response.json().then((data) => {
-                localStorage.setItem("token", data.token);
-                localStorage.setItem("user", JSON.stringify(data.user));
-                console.log('Welcome')
+          if (response.ok) {
+            response.json().then((data) => {
+              localStorage.setItem("session", data.session);
+              localStorage.setItem("user", JSON.stringify(data.user));
+              console.log("Welcome");
+              if (data.user.role === "admin") {
+                navigate("/admin");
+              } else {
                 navigate("/landingpageclient");
-                setIsLoading(false);
-              });
-            } else {
-              console.log("username or password incorrect");
-            }
-          });
-
-    };
+              }
+              setIsLoading(false);
+            });
+          } else {
+            console.log("username or password incorrect");
+          }
+        });
+      };      
     return ( 
         <div>
             <nav

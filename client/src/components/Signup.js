@@ -114,6 +114,7 @@ const Signup = () => {
                                     >Password
                                     </label>
                                 </div>
+                                
 
                                 {/* Remember me checkbox */}
                                 {/* <div className="mb-6 flex items-center justify-between">
