@@ -28,7 +28,7 @@ const Signup = () => {
         }).then((response)=>{
             if(response.ok){
                 response.json().then((data) => {
-                    localStorage.setItem("Authorization", data.token);
+                    localStorage.setItem("session", data.session);
                     localStorage.setItem("user", JSON.stringify(data.user));
                     console.log("Signed Up Successfully")
                     navigate("/");
