@@ -14,31 +14,31 @@ function IncidentForm(props) {
     latitude: " ",
     longitude: " ",
   }); // set the default location here
-  // const [submittedData, setSubmittedData] = useState(null);
-  // const [imageURL, setImageURL] = useState(null);
-  // const [videoURL, setVideoURL] = useState(null); // new state variable for video URL
+  const [submittedData, setSubmittedData] = useState(null);
+  const [imageURL, setImageURL] = useState(null);
+  const [videoURL, setVideoURL] = useState(null); // new state variable for video URL
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  // const handleFileChange = (event) => {
-  //   const { name, files } = event.target;
-  //   setFormData({ ...formData, [name]: files[0] });
-  //    if (event.target.accept === "video/*") {
-  //       const reader = new FileReader();
-  //       reader.onload = (e) => {
-  //         setVideoURL(e.target.result);
-  //       };
-  //       reader.readAsDataURL(files[0]);
-  //     }
-  //  else if (event.target.accept === "image/*") {
-  //     const reader = new FileReader();
-  //     reader.onload = (e) => {
-  //       setImageURL(e.target.result);
-  //     };
-  //     reader.readAsDataURL(files[0]);
-  //   }
-  // };
+  const handleFileChange = (event) => {
+    const { name, files } = event.target;
+    setFormData({ ...formData, [name]: files[0] });
+     if (event.target.accept === "video/*") {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setVideoURL(e.target.result);
+        };
+        reader.readAsDataURL(files[0]);
+      }
+   else if (event.target.accept === "image/*") {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImageURL(e.target.result);
+      };
+      reader.readAsDataURL(files[0]);
+    }
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Form data:", formData);
@@ -162,34 +162,34 @@ function IncidentForm(props) {
           <option value="rejected">rejected</option>
           <option value="resolved">resolved</option>
         </select>
-        {/* <label htmlFor="imageUpload">Image Upload</label>
+        <label htmlFor="imageUpload">Image Upload</label>
         <input
           type="file"
           id="imageUpload"
           name="imageUpload"
           accept="image/*"
           onChange={handleFileChange}
-        /> */}
-        {/* {imageURL && (
+        />
+        {imageURL && (
           <div>
             <h3>Preview:</h3>
             <img src={imageURL} alt="Uploaded" width="200" />
           </div>
         )}
-        <label htmlFor="videoUpload">Video Upload</label> */}
-        {/* <input
+        <label htmlFor="videoUpload">Video Upload</label>
+        <input
           type="file"
           id="videoUpload"
           name="videoUpload"
           accept="video/*"
           onChange={handleFileChange}
-        /> */}
-        {/* {videoURL && (
+        />
+        {videoURL && (
           <div>
             <h3>Preview:</h3>
             <video src={videoURL} controls width="200" />
           </div>
-        )} */}
+        )}
         <label htmlFor="geolocation">Geolocation:</label>
         <input className='input' type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
         <p>Latitude: {latitude}</p>
