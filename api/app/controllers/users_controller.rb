@@ -95,15 +95,25 @@ class UsersController < ApplicationController
     #                 app_response(message: 'Invalid username/email or password', status: :unauthorized)
     #             end
     #         end
+    # def login
+    #     sql = "username = :username OR email = :email"
+    #     user = User.where(sql, { username: user_params[:username], email: user_params[:email] }).first
+    #     if user&.authenticate(user_params[:password])
+    #       app_response(message: 'Login was successful', status: :ok, data: { user: user, role: user.role })
+    #     else
+    #       app_response(message: 'Invalid username/email or password', status: :unauthorized)
+    #     end
+    #   end
     def login
         sql = "username = :username OR email = :email"
         user = User.where(sql, { username: user_params[:username], email: user_params[:email] }).first
         if user&.authenticate(user_params[:password])
-          app_response(message: 'Login was successful', status: :ok, data: { user: user, role: user.role })
+          app_response(message: 'Login was successful', status: :ok, data: { user_id: user.id, role: user.role })
         else
           app_response(message: 'Invalid username/email or password', status: :unauthorized)
         end
       end
+      
       
       
         

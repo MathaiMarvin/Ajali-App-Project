@@ -3934,3 +3934,99 @@ ActionController::RoutingError (No route matches [GET] "/ws"):
   
 ActionController::RoutingError (No route matches [GET] "/ws"):
   
+Started POST "/users/register" for 127.0.0.1 at 2023-04-27 23:20:17 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"admin", "email"=>"admin@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "user"=>{"email"=>"admin@gmail.com", "username"=>"admin", "role"=>"admin"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f9ab40eb1d0>, params: {"username"=>"admin", "email"=>"admin@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"admin@gmail.com", "username"=>"admin", "role"=>"admin"}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+Completed 422 Unprocessable Entity in 213ms (Views: 0.2ms | ActiveRecord: 6.8ms | Allocations: 7738)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2023-04-27 23:20:30 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "user"=>{"email"=>"admin2@gmail.com", "username"=>"admin2", "role"=>"admin"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f9ab80eb5c8>, params: {"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"admin2@gmail.com", "username"=>"admin2", "role"=>"admin"}} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "role", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin2@gmail.com"], ["username", "admin2"], ["password_digest", "[FILTERED]"], ["role", 1], ["phone_number", nil], ["created_at", "2023-04-27 20:20:30.961929"], ["updated_at", "2023-04-27 20:20:30.961929"]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "admin2"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin2@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in `create'
+Completed 201 Created in 224ms (Views: 0.5ms | ActiveRecord: 12.6ms | Allocations: 7726)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-27 23:20:44 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "session"=>{"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin2"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 47ms (Views: 0.2ms | ActiveRecord: 8.3ms | Allocations: 23072)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-27 23:24:09 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "session"=>{"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin2"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 4.6ms | Allocations: 22248)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-27 23:24:12 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "session"=>{"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin2"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 563)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-27 23:24:28 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "session"=>{"username"=>"admin2", "email"=>"admin2@gmail.com", "password"=>"[FILTERED]", "role"=>"admin"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin2"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 27ms (Views: 0.3ms | ActiveRecord: 6.4ms | Allocations: 22248)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-27 23:25:14 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"admin", "email"=>"admin@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "session"=>{"username"=>"admin", "email"=>"admin@gmail.com", "password"=>"[FILTERED]", "role"=>"admin"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 30ms (Views: 0.4ms | ActiveRecord: 4.9ms | Allocations: 22248)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-04-27 23:29:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/marvin/Development/code/trial/Ajali-App-Project/api/app/controllers/sessions_controller.rb:59: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/sessions_controller.rb:59: syntax error, unexpected `end', expecting end-of-input
+app/controllers/sessions_controller.rb:59: syntax error, unexpected `end', expecting end-of-input
+app/controllers/sessions_controller.rb:59: syntax error, unexpected `end', expecting end-of-input
+Started POST "/users/login" for 127.0.0.1 at 2023-04-27 23:30:55 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"admin", "email"=>"admin@gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "session"=>{"username"=>"admin", "email"=>"admin@gmail.com", "password"=>"[FILTERED]", "role"=>"admin"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 28ms (Views: 0.4ms | ActiveRecord: 5.7ms | Allocations: 22258)
+
+
