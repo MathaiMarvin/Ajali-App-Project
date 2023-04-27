@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from 'react';
 function IncidentList() {
   const [items, setItems] = useState([]);
+  // useEffect(() => {
+  //   async function fetchItems() {
+  //     try {
+  //       const response = await fetch('https://ajalireports.onrender.com/incidents');
+  //       const json = await response.json();
+  //       if ( json.data && Array.isArray(json.data)) {
+  //         setItems(json.data);
+  //       } else {
+  //         // Handle the case where the data is not an array
+  //         console.error('Fetched data is not an array:', json);
+  //       }
+  //     } catch (error) {
+  //       // Handle fetch or JSON parsing errors
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   }
+  //   fetchItems();
+  // }, []);
   useEffect(() => {
     async function fetchItems() {
       const response = await fetch('https://ajalireports.onrender.com/incidents');
@@ -18,17 +36,17 @@ function IncidentList() {
             className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
             src="https://www.sevenishlaw.com/wp-content/uploads/2020/12/indianapolis-personal-injury-lawyer-what-causes-death-in-motorcycle-accidents.jpg"
             alt="" />
-            {items.data && items.data.map((item) => (
-        <div key={item.id} className="flex flex-col justify-start p-6">
+            {items.data && Object.entries(items.data).map(([key, value]) => (
+        <div key={key} className="flex flex-col justify-start p-6">
             <h5
             className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-            {item.title}
+            {value.title}
             </h5>
             <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-            {item.description}
+            {value.description}
             </p>
             <p className="text-xs text-neutral-500 dark:text-neutral-300">
-            {item.status}
+            {value.status}
             </p>
         </div>))}
         </div>

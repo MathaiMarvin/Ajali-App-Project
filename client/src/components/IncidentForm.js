@@ -13,34 +13,32 @@ function IncidentForm(props) {
     location: "",
     latitude: " ",
     longitude: " ",
-    image: null,
-    video: null,
   }); // set the default location here
   // const [submittedData, setSubmittedData] = useState(null);
-  const [imageURL, setImageURL] = useState(null);
-  const [videoURL, setVideoURL] = useState(null); // new state variable for video URL
+  // const [imageURL, setImageURL] = useState(null);
+  // const [videoURL, setVideoURL] = useState(null); // new state variable for video URL
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handleFileChange = (event) => {
-    const { name, files } = event.target;
-    setFormData({ ...formData, [name]: files[0] });
-     if (event.target.accept === "video/*") {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          setVideoURL(e.target.result);
-        };
-        reader.readAsDataURL(files[0]);
-      }
-   else if (event.target.accept === "image/*") {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setImageURL(e.target.result);
-      };
-      reader.readAsDataURL(files[0]);
-    }
-  };
+  // const handleFileChange = (event) => {
+  //   const { name, files } = event.target;
+  //   setFormData({ ...formData, [name]: files[0] });
+  //    if (event.target.accept === "video/*") {
+  //       const reader = new FileReader();
+  //       reader.onload = (e) => {
+  //         setVideoURL(e.target.result);
+  //       };
+  //       reader.readAsDataURL(files[0]);
+  //     }
+  //  else if (event.target.accept === "image/*") {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       setImageURL(e.target.result);
+  //     };
+  //     reader.readAsDataURL(files[0]);
+  //   }
+  // };
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Form data:", formData);
@@ -59,16 +57,32 @@ function IncidentForm(props) {
       console.error("Failed to create incident:", error);
     }
   };
+  // useEffect(() => {
+  //   axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${location},Kenya&key=d8e08d86813a4657bb5f4b35886dcea2`)
+  //     .then(response => {
+  //       setLatitude(response.data.results[0].geometry.lat);
+  //       setLongitude(response.data.results[0].geometry.lng);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }, [location]);
   useEffect(() => {
     axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${location},Kenya&key=d8e08d86813a4657bb5f4b35886dcea2`)
       .then(response => {
-        setLatitude(response.data.results[0].geometry.lat);
-        setLongitude(response.data.results[0].geometry.lng);
+        const results = response.data.results;
+        if (results.length > 0 && results[0].hasOwnProperty('geometry')) {
+          setLatitude(results[0].geometry.lat);
+          setLongitude(results[0].geometry.lng);
+        } else {
+          console.log('Invalid response data');
+        }
       })
       .catch(error => {
         console.log(error);
       });
   }, [location]);
+  
   useEffect(() => {
     if (latitude && longitude) {
       const mapOptions = {
@@ -144,38 +158,38 @@ function IncidentForm(props) {
           required
         >
           <option value="">--Select--</option>
-          <option value="pending">Pending</option>
-          <option value="in-progress">In Progress</option>
-          <option value="resolved">Resolved</option>
+          <option value="under_investigation">under_investigation</option>
+          <option value="rejected">rejected</option>
+          <option value="resolved">resolved</option>
         </select>
-        <label htmlFor="imageUpload">Image Upload</label>
+        {/* <label htmlFor="imageUpload">Image Upload</label>
         <input
           type="file"
           id="imageUpload"
           name="imageUpload"
           accept="image/*"
           onChange={handleFileChange}
-        />
-        {imageURL && (
+        /> */}
+        {/* {imageURL && (
           <div>
             <h3>Preview:</h3>
             <img src={imageURL} alt="Uploaded" width="200" />
           </div>
         )}
-        <label htmlFor="videoUpload">Video Upload</label>
-        <input
+        <label htmlFor="videoUpload">Video Upload</label> */}
+        {/* <input
           type="file"
           id="videoUpload"
           name="videoUpload"
           accept="video/*"
           onChange={handleFileChange}
-        />
-        {videoURL && (
+        /> */}
+        {/* {videoURL && (
           <div>
             <h3>Preview:</h3>
             <video src={videoURL} controls width="200" />
           </div>
-        )}
+        )} */}
         <label htmlFor="geolocation">Geolocation:</label>
         <input className='input' type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
         <p>Latitude: {latitude}</p>
