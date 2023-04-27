@@ -59,7 +59,7 @@ class IncidentsController < ApplicationController
   
     
     def index
-      incidents = user.incidents.all
+      incidents = Incident.all
       app_response(message: 'success', status: :ok, data: incidents)
     end
     
