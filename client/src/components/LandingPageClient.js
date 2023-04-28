@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import React, { useState, useEffect } from "react";
-import TawkTo from "./TawkTo";
+import TawkWidget from "./TawkWidget";
 import axios from 'axios';
 
 const LandingPageClient = () => {
@@ -151,7 +151,7 @@ useEffect(() => {
 
                 </div>
                 </div>
-                <TawkTo/>
+                <TawkWidget/>
             </div>
         </div>
       
