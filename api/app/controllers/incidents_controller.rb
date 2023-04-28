@@ -64,7 +64,7 @@ class IncidentsController < ApplicationController
     end
     
     def create
-      incident = user.incidents.create(incident_params)
+      incident = Incident.create(incident_params)
       if incident.save
         render json: { message: 'success', data: incident }, status: :created
       else
@@ -73,7 +73,7 @@ class IncidentsController < ApplicationController
     end
     
     def show
-      incident = user.incidents.find_by(id: params[:id])
+      incident = Incident.find_by(id: params[:id])
       if incident
         app_response(message: 'success', status: :ok, data: incident)
       else
@@ -82,7 +82,7 @@ class IncidentsController < ApplicationController
     end
     
     def update
-      incident = user.incidents.find_by(id: params[:id])
+      incident = Incident.find_by(id: params[:id])
       if incident.update(incident_params)
         app_response(message: 'Incident updated successfully', status: :ok, data: incident)
       else
@@ -91,7 +91,7 @@ class IncidentsController < ApplicationController
     end
     
     def destroy
-      incident = user.incidents.find_by(id: params[:id])
+      incident = Incident.find_by(id: params[:id])
       if incident
         incident.destroy
         app_response(message: 'Incident deleted successfully', status: :ok)
