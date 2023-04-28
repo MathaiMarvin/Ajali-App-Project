@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import image from "../img/roadaccident.jpg"
 import imgtestimonial2 from "../img/testimonial2.jpeg"
 import '../index.css'
-import TawkTo from "./TawkTo";
 
 const Home = () => {
     // const navigate = useNavigate();
@@ -573,7 +572,7 @@ const handleLogin = (e) => {
                 </div>
                 </footer>
 
-                <TawkTo/>
+            
         </div>
      );
 }

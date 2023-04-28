@@ -64,7 +64,7 @@ class IncidentsController < ApplicationController
     end
     
     def create
-      incident = Incident.new(incident_params)
+      incident = user.incidents.create(incident_params)
       if incident.save
         render json: { message: 'success', data: incident }, status: :created
       else

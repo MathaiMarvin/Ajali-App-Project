@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
-import TawkTo from './TawkTo';
+import TawkWidget from './TawkWidget';
 function IncidentForm(props) {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
@@ -251,7 +251,7 @@ function IncidentForm(props) {
       </div>
       <div id="map" style={{ height: '785px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
       </div>
-      <TawkTo/>
+      <TawkWidget/>
     </div>
   );
 }
