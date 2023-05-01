@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import LandingPageAdmin from './components/LangingPageAdmin';
 import LandingPageClient from './components/LandingPageClient';
 import IncidentForm from './components/IncidentForm';
+import IncidentDetails from './components/IncidentDetails';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/admin'element ={<LandingPageAdmin/>}/>
         <Route path='/landingpageclient' element={<LandingPageClient/>} />
         <Route path='/report' element={<IncidentForm/>} />
+        <Route path="/incidents/:id" element={<IncidentDetails/>} />
       </Routes>
     </div>
   );

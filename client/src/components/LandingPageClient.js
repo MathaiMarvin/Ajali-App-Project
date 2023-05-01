@@ -2,12 +2,15 @@ import Navbar from "./Navbar";
 import React, { useState, useEffect } from "react";
 import TawkWidget from "./TawkWidget";
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import IncidentDetails from "./IncidentDetails";
 
 const LandingPageClient = () => {
 const [items, setItems] = useState([]);
 const [latitude, setLatitude] = useState(null);
 const [longitude, setLongitude] = useState(null);
 const [location, setLocation] = useState('');
+const [selectedIncident, setSelectedIncident] = useState(null);
 const [selectedFilters, setSelectedFilters] = useState([]);
 
 useEffect(() => {
@@ -66,15 +69,50 @@ useEffect(() => {
     });
 
     // Add markers for incidents
-    if (items && items.data) {
-      items.data.forEach((item) => {
-        new window.google.maps.Marker({
-          position: { lat: item.latitude, lng: item.longitude },
-          map: newMap,
-          title: item.title,
-        });
-      });
-    }
+    // if (items && items.data) {
+    //   items.data.forEach((item) => {
+    //     new window.google.maps.Marker({
+    //       position: { lat: item.latitude, lng: item.longitude },
+    //       map: newMap,
+    //       title: item.title,
+    //     });
+    //   });
+    // }
+    // if (items && items.data) {
+    //   items.data.forEach((item) => {
+    //     const marker = new window.google.maps.Marker({
+    //       position: { lat: item.latitude, lng: item.longitude },
+    //       map: newMap,
+    //       title: item.title,
+    //     });
+    //     marker.addListener('click', () => {
+    //       setSelectedIncident(item);
+    //     });
+    //   });
+    // }
+    // Add markers for incidents
+if (filteredItems) {
+  filteredItems.forEach((item) => {
+    new window.google.maps.Marker({
+      position: { lat: item.latitude, lng: item.longitude },
+      map: newMap,
+      title: item.title,
+    });
+  });
+}
+if (filteredItems) {
+  filteredItems.forEach((item) => {
+    const marker = new window.google.maps.Marker({
+      position: { lat: item.latitude, lng: item.longitude },
+      map: newMap,
+      title: item.title,
+    });
+    marker.addListener('click', () => {
+      setSelectedIncident(item);
+    });
+  });
+}
+    
       
 
     newMap.addListener('click', (event) => {
@@ -173,7 +211,7 @@ const filteredItems = items.data && items.data.filter(item => {
                           <img className="h-full object-cover w-full md:rounded-none md:rounded-l-lg" src="https://www.sevenishlaw.com/wp-content/uploads/2020/12/indianapolis-personal-injury-lawyer-what-causes-death-in-motorcycle-accidents.jpg" alt="" />
                         </div>
                         <div className="w-full md:flex-1 card-body p-4">
-                          <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">Title: {value.title}</h5>
+                          <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50 cursor-pointer"> <Link to={`/incidents/${value.id}`}> Title: {value.title}</Link></h5>
                           <p className="text-base text-neutral-600 dark:text-neutral-200">Description: {value.description}</p>
                           <p className="text-base text-neutral-500 dark:text-neutral-300">Status: {value.status}</p>
                           <p className="text-base text-neutral-500 dark:text-neutral-300">Location: {value.location}</p>
@@ -181,6 +219,12 @@ const filteredItems = items.data && items.data.filter(item => {
                           <p className="text-base text-neutral-500 dark:text-neutral-300">Location: {value.latitude}</p>
                           <p className="text-base text-neutral-500 dark:text-neutral-300">Incident Date: {value.date}</p>
                         </div>
+                        {selectedIncident && selectedIncident.id === value.id && (
+                          <IncidentDetails
+                            incident={selectedIncident}
+                            onClose={() => setSelectedIncident(null)}
+                          />
+                        )}
                       </div>
                     ))}
                   </div>
