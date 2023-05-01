@@ -1,6 +1,22 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
+import LogoutButton from './LogOut';
 const Navbar = () => {
+    const [loggedIn, setLoggedIn] = useState(true);
+    function handleLogoutClick() {
+      fetch('https://ajalireports.onrender.com/users/logout', {
+        method: 'DELETE',
+      })
+      .then(response => {
+        if (response.ok) {
+          sessionStorage.clear();
+          setLoggedIn(false);
+        } else {
+          console.error('Failed to log out');
+        }
+      })
+      .catch(error => console.error(error));
+    }
     return ( 
         <div>
             {/* Main navigation container */}
@@ -50,7 +66,7 @@ const Navbar = () => {
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                     {/* Dashboard link */}
                     <Link
-                        class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+                        class="text-neutral-500 font-semibold hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
                         to="/landingpageclient"
                         data-te-nav-link-ref
                         >Ajali Report</Link>
@@ -66,7 +82,7 @@ const Navbar = () => {
                      {/* Projects link  */}
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                     <a
-                        class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                        class="text-neutral-500 font-semibold hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-500 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
                         href="/report"
                         data-te-nav-link-ref
                         >Report Incident</a>
@@ -86,15 +102,22 @@ const Navbar = () => {
                     role="button"
                     data-te-dropdown-toggle-ref
                     aria-expanded="false">
-                    {/* User avatar  */}
-                    <img
-                        src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg"
-                        class="rounded-full"
-                        style={{height: "25px", width: "25px"}}
-                        alt=""
-                        loading="lazy" />
+                    
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                        </svg>
 
-                    <span className="ml-2"> Log Out</span>
+
+                        {loggedIn ? (
+                                    <div>
+                                    
+                                    <LogoutButton onClick={handleLogoutClick} />
+                                    </div>
+                                ) : (
+                                    <p>You are logged out.</p>,
+                                    window.location.href = '/'
+                                    
+                            )}
                     </a>
                 </div>
                 </div>

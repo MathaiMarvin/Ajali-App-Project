@@ -168,10 +168,10 @@ function IncidentForm(props) {
       {/* <div className='report-heading'>INCIDENT  REPORT</div> */}
       <div className="map-container">
         <div className="report-content">
-        <form className='report' onSubmit={(e)=>handleSubmit(e)}>
-        <label htmlFor="title">Title:</label>
+        <form className='report rounded-md shadow ' onSubmit={(e)=>handleSubmit(e)}>
+        <label htmlFor="title" className='mt-4'>Title:</label>
         <input
-        className='input'
+        className='input mt-4'
           type="text"
           id="title"
           name="title"
@@ -198,10 +198,11 @@ function IncidentForm(props) {
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           required
         ></textarea>
-        <label htmlFor="status">Status:</label>
+        <label htmlFor="status" className='mt-4'>Status:</label>
         <select
           id="status"
           name="status"
+          className='mt-1'
           value={formData.status}
           onChange={(e) => setFormData({ ...formData, status: parseInt(e.target.value) })}
           required
@@ -212,14 +213,14 @@ function IncidentForm(props) {
           <option value={2}>resolved</option>
         </select>
 
-        <label htmlFor="geolocation">Geolocation:</label>
+        <label htmlFor="geolocation" className='mt-4'> Geolocation:</label>
         <input className='input' type='text' value={location} onChange={(e) => setLocation(e.target.value)} />
         <p>Latitude: {latitude}</p>
       <p>Longitude: {longitude}</p>
-        <button className="submit-btn"type="submit" value="Submit" > Submit </button>
+        <button className="submit-btn rounded-md"type="submit" value="Submit" > Submit </button>
       </form>
       </div>
-      <div id="map" style={{ height: '785px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
+      <div id="map" className="rounded-md"style={{ height: '785px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
       </div>
       <TawkWidget/>
     </div>

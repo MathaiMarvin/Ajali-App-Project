@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
+import AdminNavbar from "./AdminNavbar";
 function LandingPageAdmin() {
   const Url = "https://ajalireports.onrender.com/incidents";
   const [incidents, setIncidents] = useState([]);
@@ -46,7 +46,7 @@ function LandingPageAdmin() {
   };
   return (
     <div>
-      <Navbar />
+      <AdminNavbar />
       <table>
         <thead>
           <tr>
