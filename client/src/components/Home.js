@@ -6,44 +6,8 @@ import imgtestimonial2 from "../img/testimonial2.jpeg"
 import '../index.css'
 
 const Home = () => {
-    // const navigate = useNavigate();
-
-    // const [formData, setFormData] = useState ({
-    //     username: "",
-    //     password: "",
-    //     role: "",
-    // });
-    // const [isLoading, setIsLoading] = useState(false);
-    // const handleLogin = (e) => {
-    //     e.preventDefault();
-    //     setIsLoading(true);
-      
-    //     fetch("https://ajalireports.onrender.com/users/login", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(formData),
-    //     }).then((response) => {
-    //       if (response.ok) {
-    //         response.json().then((data) => {
-    //           localStorage.setItem("session", data.session);
-    //           localStorage.setItem("user", JSON.stringify(data.user));
-    //           console.log("Welcome");
-    //           console.log(data)
-    //           if (data.role === "admin") {
-    //             navigate("/admin");
-    //           } else {
-    //             navigate("/landingpageclient");
-    //           }
-    //           setIsLoading(false);
-    //         });
-    //       } else {
-    //         console.log("username or password incorrect");
-    //       }
-    //     });
-    //   };  
-    const navigate = useNavigate();
+   
+const navigate = useNavigate();
 
 const [formData, setFormData] = useState ({
   username: "",
@@ -65,8 +29,9 @@ const handleLogin = (e) => {
   }).then((response) => {
     if (response.ok) {
       response.json().then((data) => {
-        localStorage.setItem("session", data.session);
-        localStorage.setItem("user", JSON.stringify(data.user));
+        sessionStorage.setItem("session", data.session);
+        sessionStorage.setItem("user", JSON.stringify(data.user));
+        sessionStorage.setItem('userId', data.user_id);
         console.log("Welcome");
         console.log(data);
         if (data.role === "admin") {

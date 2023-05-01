@@ -11,13 +11,13 @@ class ApplicationController < ActionController::API
 
             # store user id in session
             def save_user(id)
-                session[:uid] = id
+                session[:user_id] = id
                 session[:expiry] = 6.hours.from_now
             end
         
             # delete user id in session
             def remove_user
-                session.delete(:uid)
+                session.delete(:user_id)
                 session[:expiry] = Time.now
             end
         
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::API
 
                     # # get logged in user
         def user
-            User.find(@uid) 
+            User.find(@user_id) 
         end
     
         #save user's id
@@ -42,7 +42,9 @@ class ApplicationController < ActionController::API
     
         # get logged in user (session)
         def user_session
-            User.find(session[:uid].to_i) 
+            user_id = session[:user_id]
+            puts "session[:user_id] = #{user_id.inspect}"
+            User.find(user_id.to_i) 
         end
 
     # rescue all common errors
