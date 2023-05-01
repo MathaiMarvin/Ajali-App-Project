@@ -1,4 +1,4 @@
-# Vetty
+# Ajali Reports
 
 ![GitHub issues](https://img.shields.io/github/issues/MathaiMarvin/Ajali-App-Project) ![GitHub contributors](https://img.shields.io/github/contributors/MathaiMarvin/Ajali-App-Project?color=green) ![GitHub repo size](https://img.shields.io/github/repo-size/MathaiMarvin/Ajali-App-Project?color=violet)
 
