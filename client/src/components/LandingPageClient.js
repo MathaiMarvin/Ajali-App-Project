@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import TawkWidget from "./TawkWidget";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import IncidentDetails from "./IncidentDetails";
 
 const LandingPageClient = () => {
@@ -12,6 +13,7 @@ const [longitude, setLongitude] = useState(null);
 const [location, setLocation] = useState('');
 const [selectedIncident, setSelectedIncident] = useState(null);
 const [selectedFilters, setSelectedFilters] = useState([]);
+const navigate = useNavigate();
 
 useEffect(() => {
   async function fetchItems() {
@@ -129,6 +131,77 @@ const filteredItems = items.data && items.data.filter(item => {
   return selectedFilters.includes(item.status);
 });
 
+// const handleDelete = (id) => {
+//   axios.delete(`https://ajalireports.onrender.com/incidents/${id}`)
+//     .then(() => {
+//       const newItems = items.filter(item => item.id !== id);
+//       setItems(newItems);
+//       setSelectedIncident(null);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// };
+// const handleDelete = (id) => {
+//   axios
+//     .delete(`https://ajalireports.onrender.com/incidents/${id}`)
+//     .then(() => {
+//       const newItems = items.filter(item => item.id !== id);
+//       setItems(newItems);
+//       setSelectedIncident(null);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//       console.log(error.response.data); // Log the server response data
+//     });
+// };
+// const handleDelete = (id) => {
+//   console.log(id)
+//   if (!id) {
+//     console.log('Invalid id:', id);
+//     return;
+//   }
+//   axios
+//     .delete(`http://127.0.0.1:3000/incidents/${id}`)
+//     .then((response) => {
+//       const data = response.data;
+//       if (!data) {
+//         console.log('Invalid response data:', data);
+//         return;
+//       }
+//       const newItems = items.filter(item => item.id !== id);
+//       setItems(newItems);
+//       setSelectedIncident(null);
+//       navigate("/landingpageclient"); 
+//       alert("Deleted Successfully")
+//     })
+//     .catch(error => {
+//       console.log(error);
+//       console.log(error.response.data); // Log the server response data
+//     });
+// };
+const handleDelete = (id) => {
+  if (!id) {
+    alert('Invalid id');
+    return;
+  }
+
+  axios.delete(`https://ajalireports.onrender.com/incidents/${id}`)
+    .then((response) => {
+      const newItems = items.filter(item => item.id !== id);
+      setItems(newItems);
+      setSelectedIncident(null);
+      navigate('/landingpageclient');
+      alert('Deleted successfully');
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('Deleted incident');
+    });
+};
+
+
+
 
     return ( 
         <div>
@@ -181,6 +254,7 @@ const filteredItems = items.data && items.data.filter(item => {
                         {selectedIncident && selectedIncident.id === value.id && (
                           <IncidentDetails
                             incident={selectedIncident}
+                            handleDelete={handleDelete}
                             onClose={() => setSelectedIncident(null)}
                           />
                         )}
