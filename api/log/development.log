@@ -5750,3 +5750,7 @@ Processing by IncidentsController#index as */*
 Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 956)
 
 
+Started GET "/admins" for 127.0.0.1 at 2023-05-01 21:23:57 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/admins"):
+  
