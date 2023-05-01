@@ -75,6 +75,7 @@ useEffect(() => {
         });
       });
     }
+      
 
     newMap.addListener('click', (event) => {
       const clickedLatitude = event.latLng.lat();
@@ -92,7 +93,9 @@ useEffect(() => {
           console.log(error);
         });
     });
+
   }
+  
 }, [latitude, longitude, items]);
 
 const handleFilterChange = (event) => {
@@ -144,7 +147,7 @@ const filteredItems = items.data && items.data.filter(item => {
                   </div>
 
                   </div>
-                  <div className="w-full md:w-2/3 h-screen">
+                  {/* <div className="w-full md:w-2/3 h-screen">
                     <div className="card-container w-full flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                       {filteredItems && Object.entries(filteredItems).map(([key, value]) => (
                         <div key={key} className="card m-2">
@@ -161,7 +164,28 @@ const filteredItems = items.data && items.data.filter(item => {
                         </div>
                       ))}
                     </div>
+                  </div> */}
+                  <div className="w-full md:w-2/3 h-screen">
+                  <div className="card-container w-full flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                    {filteredItems && Object.entries(filteredItems).map(([key, value]) => (
+                      <div key={key} className="card m-2 flex flex-col md:flex-row">
+                        <div className="w-full md:w-48">
+                          <img className="h-full object-cover w-full md:rounded-none md:rounded-l-lg" src="https://www.sevenishlaw.com/wp-content/uploads/2020/12/indianapolis-personal-injury-lawyer-what-causes-death-in-motorcycle-accidents.jpg" alt="" />
+                        </div>
+                        <div className="w-full md:flex-1 card-body p-4">
+                          <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">Title: {value.title}</h5>
+                          <p className="text-base text-neutral-600 dark:text-neutral-200">Description: {value.description}</p>
+                          <p className="text-base text-neutral-500 dark:text-neutral-300">Status: {value.status}</p>
+                          <p className="text-base text-neutral-500 dark:text-neutral-300">Location: {value.location}</p>
+                          <p className="text-base text-neutral-500 dark:text-neutral-300">Longitude: {value.longitude}</p>
+                          <p className="text-base text-neutral-500 dark:text-neutral-300">Location: {value.latitude}</p>
+                          <p className="text-base text-neutral-500 dark:text-neutral-300">Incident Date: {value.date}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
+                </div>
+
 
                 </div>
                 </div>

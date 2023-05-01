@@ -91,7 +91,7 @@ class IncidentsController < ApplicationController
     end
     
     def destroy
-      incident = Incidentcd .find_by(id: params[:id])
+      incident = Incident.find_by(id: params[:id])
       if incident
         incident.destroy
         app_response(message: 'Incident deleted successfully', status: :ok)
@@ -103,7 +103,7 @@ class IncidentsController < ApplicationController
     private
     
     def incident_params
-      params.require(:incident).permit(:title, :description, :status, :date, :location, :latitude, :longitude, :user_id)
+      params.require(:incident).permit(:title, :description, :status, :date, :location, :latitude, :longitude)
     end
   end
   
