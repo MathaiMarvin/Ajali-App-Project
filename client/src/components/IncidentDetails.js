@@ -69,9 +69,10 @@ const IncidentDetails = ({ incident, onClose, handleDelete, isDeleting }) => {
             <div>
               <h3 className="text-lg leading-6 font-medium text-gray-900">{incident.title}</h3>
               <div className="mt-2">
-                <p className="text-sm leading-5 text-gray-500">{incident.description}</p>
-                <p className="text-sm leading-5 text-gray-500">{incident.location}</p>
-                <p className="text-sm leading-5 text-gray-500">{incident.date}</p>
+                <p className="text-sm leading-5 text-gray-500">Description: {incident.description}</p>
+                <p className="text-sm leading-5 text-gray-500">Location: {incident.location}</p>
+                <p className="text-sm leading-5 text-gray-500">Date: {incident.date}</p>
+                <p className="text-sm leading-5 text-gray-500">Status: {incident.status}</p>
               </div>
             </div>
             <div className="mt-5 sm:mt-6">
@@ -83,7 +84,7 @@ const IncidentDetails = ({ incident, onClose, handleDelete, isDeleting }) => {
                     onClick={() => handleDelete(incident.id)}
                     disabled={isDeleting}
                   >
-                    
+
                     {isDeleting ? "Deleting..." : "Delete"}
                   </button>
                 </span>
