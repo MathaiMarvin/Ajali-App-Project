@@ -91,15 +91,29 @@ class IncidentsController < ApplicationController
       end
     end
     
+    # def destroy
+    #   incident = Incident.find_by(id: params[:id])
+    #   if incident
+    #     incident.destroy
+    #     app_response(message: 'Incident deleted successfully', status: :ok)
+    #   else
+    #     app_response(message: 'Failed to delete Incident', status: :unprocessable_entity)
+    #   end
+    # end
+
     def destroy
-      incident = Incident.find_by(id: params[:id])
-      if incident
+      # check whether the task exists
+    incident = Incident.find_by(id:params[:id])
+     
+     #  delete the task
+     if incident
         incident.destroy
-        app_response(message: 'Incident deleted successfully', status: :ok)
-      else
-        app_response(message: 'Failed to delete Incident', status: :unprocessable_entity)
-      end
-    end
+         head :no_content
+         app_response(message: 'Incident deleted successfully', status: :ok)
+     else 
+      app_response(message: 'Failed to delete Incident', status: :unprocessable_entity)
+     end
+     end
     
     private
     
