@@ -68,29 +68,6 @@ useEffect(() => {
       title: 'Current location',
     });
 
-    // Add markers for incidents
-    // if (items && items.data) {
-    //   items.data.forEach((item) => {
-    //     new window.google.maps.Marker({
-    //       position: { lat: item.latitude, lng: item.longitude },
-    //       map: newMap,
-    //       title: item.title,
-    //     });
-    //   });
-    // }
-    // if (items && items.data) {
-    //   items.data.forEach((item) => {
-    //     const marker = new window.google.maps.Marker({
-    //       position: { lat: item.latitude, lng: item.longitude },
-    //       map: newMap,
-    //       title: item.title,
-    //     });
-    //     marker.addListener('click', () => {
-    //       setSelectedIncident(item);
-    //     });
-    //   });
-    // }
-    // Add markers for incidents
 if (filteredItems) {
   filteredItems.forEach((item) => {
     new window.google.maps.Marker({
@@ -185,24 +162,6 @@ const filteredItems = items.data && items.data.filter(item => {
                   </div>
 
                   </div>
-                  {/* <div className="w-full md:w-2/3 h-screen">
-                    <div className="card-container w-full flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-                      {filteredItems && Object.entries(filteredItems).map(([key, value]) => (
-                        <div key={key} className="card m-2">
-                          <img className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.sevenishlaw.com/wp-content/uploads/2020/12/indianapolis-personal-injury-lawyer-what-causes-death-in-motorcycle-accidents.jpg" alt="" />
-                          <div className="card-body">
-                            <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">Title: {value.title}</h5>
-                            <p className="text-base text-neutral-600 dark:text-neutral-200">Description: {value.description}</p>
-                            <p className="text-base text-neutral-500 dark:text-neutral-300">Status: {value.status}</p>
-                            <p className="text-base text-neutral-500 dark:text-neutral-300">Location: {value.location}</p>
-                            <p className="text-base text-neutral-500 dark:text-neutral-300">Longitude: {value.longitude}</p>
-                            <p className="text-base text-neutral-500 dark:text-neutral-300">Location: {value.latitude}</p>
-                            <p className="text-base text-neutral-500 dark:text-neutral-300">Incident Date: {value.date}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div> */}
                   <div className="w-full md:w-2/3 h-screen">
                   <div className="card-container w-full flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                     {filteredItems && Object.entries(filteredItems).map(([key, value]) => (
@@ -211,7 +170,7 @@ const filteredItems = items.data && items.data.filter(item => {
                           <img className="h-full object-cover w-full md:rounded-none md:rounded-l-lg" src="https://www.sevenishlaw.com/wp-content/uploads/2020/12/indianapolis-personal-injury-lawyer-what-causes-death-in-motorcycle-accidents.jpg" alt="" />
                         </div>
                         <div className="w-full md:flex-1 card-body p-4">
-                          <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50 cursor-pointer"> <Link to={`/incidents/${value.id}`}> Title: {value.title}</Link></h5>
+                          <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50 cursor-pointer" onClick={() => setSelectedIncident(value)}>Title: {value.title}</h5>
                           <p className="text-base text-neutral-600 dark:text-neutral-200">Description: {value.description}</p>
                           <p className="text-base text-neutral-500 dark:text-neutral-300">Status: {value.status}</p>
                           <p className="text-base text-neutral-500 dark:text-neutral-300">Location: {value.location}</p>
@@ -241,4 +200,3 @@ const filteredItems = items.data && items.data.filter(item => {
 }
  
 export default LandingPageClient;
-
