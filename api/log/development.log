@@ -4030,3 +4030,656 @@ Processing by SessionsController#create as */*
 Completed 200 OK in 28ms (Views: 0.4ms | ActiveRecord: 5.7ms | Allocations: 22258)
 
 
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 08:47:14 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "user_id"=>4, "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759, "user_id"=>4}}
+[31mUnpermitted parameter: :user_id. Context: { controller: IncidentsController, action: create, request: #<ActionDispatch::Request:0x0000557667ae6e00>, params: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "user_id"=>4, "controller"=>"incidents", "action"=>"create", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759, "user_id"=>4}} }[0m
+Completed 422 Unprocessable Entity in 29ms (Views: 0.2ms | ActiveRecord: 4.2ms | Allocations: 25858)
+
+
+Started GET "/ws" for ::1 at 2023-05-01 08:47:32 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for 127.0.0.1 at 2023-05-01 08:47:33 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 08:48:26 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "user_id"=>4, "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759, "user_id"=>4}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+Completed 422 Unprocessable Entity in 41ms (Views: 0.2ms | ActiveRecord: 6.2ms | Allocations: 30972)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 08:48:31 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "user_id"=>4, "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759, "user_id"=>4}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+Completed 422 Unprocessable Entity in 23ms (Views: 0.2ms | ActiveRecord: 6.8ms | Allocations: 11756)
+
+
+Started GET "/ws" for ::1 at 2023-05-01 08:48:38 +0300
+Started GET "/ws" for 127.0.0.1 at 2023-05-01 08:48:38 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 08:48:49 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"marvin", "password"=>"[FILTERED]", "session"=>{"username"=>"marvin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "marvin"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1469)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2023-05-01 08:49:24 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"matt", "email"=>"matt@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"matt@gmail.com", "username"=>"matt"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fb6a801b858>, params: {"username"=>"matt", "email"=>"matt@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"matt@gmail.com", "username"=>"matt"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "matt@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Create (6.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "role", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "matt@gmail.com"], ["username", "matt"], ["password_digest", "[FILTERED]"], ["role", 0], ["phone_number", nil], ["created_at", "2023-05-01 05:49:24.643652"], ["updated_at", "2023-05-01 05:49:24.643652"]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "matt"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "matt@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in `create'
+Completed 201 Created in 232ms (Views: 0.5ms | ActiveRecord: 9.0ms | Allocations: 21042)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 08:49:41 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "user_id"=>4, "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759, "user_id"=>4}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (7.5ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Car Accident"], ["description", "A saloon car and a lorry collide"], ["status", 2], ["date", "2006-03-07"], ["location", "Northeast 110th Avenue, Pratt County, KS 67589, United States of America"], ["latitude", -0.42013], ["longitude", 36.94759], ["user_id", 4], ["created_at", "2023-05-01 05:49:41.292511"], ["updated_at", "2023-05-01 05:49:41.292511"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+Completed 201 Created in 25ms (Views: 0.3ms | ActiveRecord: 8.7ms | Allocations: 18785)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 08:49:58 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+Completed 422 Unprocessable Entity in 27ms (Views: 0.2ms | ActiveRecord: 4.2ms | Allocations: 25711)
+
+
+Started GET "/ws" for ::1 at 2023-05-01 08:50:46 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2023-05-01 08:50:46 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:04:47 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 5.6ms | Allocations: 3386)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:06:26 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:45:in `user_session'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 4.3ms | Allocations: 4017)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:06:28 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:45:in `user_session'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 4019)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2023-05-01 09:06:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"matt", "email"=>"matt@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"matt@gmail.com", "username"=>"matt"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fb6c054bc20>, params: {"username"=>"matt", "email"=>"matt@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"matt@gmail.com", "username"=>"matt"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "matt@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:78:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:78:in `create'
+Completed 422 Unprocessable Entity in 221ms (Views: 0.2ms | ActiveRecord: 4.7ms | Allocations: 23801)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 09:06:52 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "email"=>"matt@gmail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"matt", "email"=>"matt@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2233)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:06:56 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:45:in `user_session'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 870)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:06:57 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:45:in `user_session'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 882)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:11:10 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:45:in `user_session'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 870)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:33:14 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 4.2ms | Allocations: 6487)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:33:19 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1549)
+
+
+Started GET "/incidents" for 127.0.0.1 at 2023-05-01 09:34:48 +0300
+Processing by IncidentsController#index as */*
+  Parameters: {"title"=>"Floods", "description"=>"heavy floods that led to many deaths", "status"=>2, "location"=>"Likoni", "latitude"=>-4.085332, "longitude"=>39.660652, "date"=>"2023-02-23", "user_id"=>2, "incident"=>{"title"=>"Floods", "description"=>"heavy floods that led to many deaths", "status"=>2, "date"=>"2023-02-23", "location"=>"Likoni", "latitude"=>-4.085332, "longitude"=>39.660652, "user_id"=>2}}
+  [1m[36mIncident Load (0.6ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents"[0m
+  ↳ app/controllers/application_controller.rb:6:in `app_response'
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.6ms | Allocations: 1102)
+
+
+Started DELETE "/incidents/1" for 127.0.0.1 at 2023-05-01 09:35:45 +0300
+Processing by IncidentsController#destroy as */*
+  Parameters: {"title"=>"Floods", "description"=>"heavy floods that led to many deaths", "status"=>2, "location"=>"Likoni", "latitude"=>-4.085332, "longitude"=>39.660652, "date"=>"2023-02-23", "user_id"=>2, "id"=>"1", "incident"=>{"title"=>"Floods", "description"=>"heavy floods that led to many deaths", "status"=>2, "date"=>"2023-02-23", "location"=>"Likoni", "latitude"=>-4.085332, "longitude"=>39.660652, "user_id"=>2}}
+  [1m[36mIncident Load (0.4ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:94:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:96:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/incidents_controller.rb:96:in `destroy'
+Completed 422 Unprocessable Entity in 27ms (Views: 0.3ms | ActiveRecord: 6.7ms | Allocations: 10957)
+
+
+Started DELETE "/incidents/1" for 127.0.0.1 at 2023-05-01 09:36:43 +0300
+Processing by IncidentsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIncident Load (0.7ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:94:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:96:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/incidents_controller.rb:96:in `destroy'
+Completed 422 Unprocessable Entity in 84ms (Views: 0.3ms | ActiveRecord: 8.5ms | Allocations: 22337)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:46:45 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+Completed 422 Unprocessable Entity in 32ms (Views: 0.3ms | ActiveRecord: 3.9ms | Allocations: 25758)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:46:59 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "user_id"=>4, "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759, "user_id"=>4}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (2.5ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Car Accident"], ["description", "A saloon car and a lorry collide"], ["status", 2], ["date", "2006-03-07"], ["location", "Northeast 110th Avenue, Pratt County, KS 67589, United States of America"], ["latitude", -0.42013], ["longitude", 36.94759], ["user_id", 4], ["created_at", "2023-05-01 06:46:59.862771"], ["updated_at", "2023-05-01 06:46:59.862771"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+Completed 201 Created in 63ms (Views: 0.5ms | ActiveRecord: 8.3ms | Allocations: 24084)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:49:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:45:in `user_session'
+Completed 422 Unprocessable Entity in 40ms (Views: 0.4ms | ActiveRecord: 7.7ms | Allocations: 26221)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:50:54 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:47:in `user_session'
+Completed 422 Unprocessable Entity in 14ms (Views: 0.2ms | ActiveRecord: 5.1ms | Allocations: 7466)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:55:39 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>" ce cq", "date"=>"2016-01-06", "description"=>"xqxqwxqw", "status"=>1, "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "incident"=>{"title"=>" ce cq", "description"=>"xqxqwxqw", "status"=>1, "date"=>"2016-01-06", "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 103)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 09:57:07 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"normal_user", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>"normal_user"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 22258)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 09:57:31 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"cdsccq", "date"=>"2014-01-15", "description"=>"xwqqwdxqw", "status"=>1, "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "incident"=>{"title"=>"cdsccq", "description"=>"xwqqwdxqw", "status"=>1, "date"=>"2014-01-15", "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | Allocations: 97)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:00:25 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2006-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car Accident", "incident"=>{"title"=>"Car Accident", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2006-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:47:in `user_session'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mIncident Create (0.9ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Car Accident"], ["description", "A saloon car and a lorry collide"], ["status", 2], ["date", "2006-03-07"], ["location", "Northeast 110th Avenue, Pratt County, KS 67589, United States of America"], ["latitude", -0.42013], ["longitude", 36.94759], ["user_id", 4], ["created_at", "2023-05-01 07:00:25.890866"], ["updated_at", "2023-05-01 07:00:25.890866"]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 201 Created in 37ms (Views: 0.5ms | ActiveRecord: 8.3ms | Allocations: 26408)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:00:45 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"cdsccq", "date"=>"2014-01-15", "description"=>"xwqqwdxqw", "status"=>1, "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "incident"=>{"title"=>"cdsccq", "description"=>"xwqqwdxqw", "status"=>1, "date"=>"2014-01-15", "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:01:24 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2009-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car crash", "incident"=>{"title"=>"Car crash", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2009-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:47:in `user_session'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mIncident Create (0.5ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Car crash"], ["description", "A saloon car and a lorry collide"], ["status", 2], ["date", "2009-03-07"], ["location", "Northeast 110th Avenue, Pratt County, KS 67589, United States of America"], ["latitude", -0.42013], ["longitude", 36.94759], ["user_id", 4], ["created_at", "2023-05-01 07:01:24.445339"], ["updated_at", "2023-05-01 07:01:24.445339"]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 201 Created in 16ms (Views: 0.5ms | ActiveRecord: 6.8ms | Allocations: 3702)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 10:02:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"normal_user", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>"normal_user"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 3.4ms | Allocations: 22258)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:03:03 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"Mass suicide", "date"=>"2023-04-30", "description"=>"Killings", "status"=>0, "location"=>"kilifi", "latitude"=>-3.1507392, "longitude"=>39.6750716, "incident"=>{"title"=>"Mass suicide", "description"=>"Killings", "status"=>0, "date"=>"2023-04-30", "location"=>"kilifi", "latitude"=>-3.1507392, "longitude"=>39.6750716}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:04:45 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"Mass suicide", "date"=>"2023-04-30", "description"=>"Killings", "status"=>0, "location"=>"kilifi", "latitude"=>-3.1507392, "longitude"=>39.6750716, "incident"=>{"title"=>"Mass suicide", "description"=>"Killings", "status"=>0, "date"=>"2023-04-30", "location"=>"kilifi", "latitude"=>-3.1507392, "longitude"=>39.6750716}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:47:in `user_session'
+Completed 422 Unprocessable Entity in 21ms (Views: 0.2ms | ActiveRecord: 5.1ms | Allocations: 23218)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:09:53 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2023-04-30", "description"=>"killings", "latitude"=>-3.1507392, "longitude"=>39.6750716, "status"=>0, "title"=>"mass suicide", "incident"=>{"title"=>"mass suicide", "description"=>"killings", "status"=>0, "date"=>"2023-04-30", "latitude"=>-3.1507392, "longitude"=>39.6750716}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:47:in `user_session'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mIncident Create (1.3ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "mass suicide"], ["description", "killings"], ["status", 0], ["date", "2023-04-30"], ["location", nil], ["latitude", -3.1507392], ["longitude", 39.6750716], ["user_id", 4], ["created_at", "2023-05-01 07:09:53.502528"], ["updated_at", "2023-05-01 07:09:53.502528"]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 422 Unprocessable Entity in 26ms (Views: 0.3ms | ActiveRecord: 7.3ms | Allocations: 13003)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:10:15 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"date"=>"2023-04-30", "description"=>"killings", "latitude"=>-3.1507392, "longitude"=>39.6750716, "status"=>0, "title"=>"mass suicide", "location"=>"Kilifi", "incident"=>{"title"=>"mass suicide", "description"=>"killings", "status"=>0, "date"=>"2023-04-30", "location"=>"Kilifi", "latitude"=>-3.1507392, "longitude"=>39.6750716}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:47:in `user_session'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mIncident Create (1.1ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "mass suicide"], ["description", "killings"], ["status", 0], ["date", "2023-04-30"], ["location", "Kilifi"], ["latitude", -3.1507392], ["longitude", 39.6750716], ["user_id", 4], ["created_at", "2023-05-01 07:10:15.616694"], ["updated_at", "2023-05-01 07:10:15.616694"]]
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:69:in `create'
+Completed 201 Created in 32ms (Views: 0.7ms | ActiveRecord: 12.2ms | Allocations: 11841)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 10:13:55 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 661)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:14:24 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"bbicib", "date"=>"2019-05-09", "description"=>" s sk ks", "status"=>1, "location"=>"unnamed road, Nairobi, 00400, Kenya", "latitude"=>-1.2812288, "longitude"=>36.7951872, "incident"=>{"title"=>"bbicib", "description"=>" s sk ks", "status"=>1, "date"=>"2019-05-09", "location"=>"unnamed road, Nairobi, 00400, Kenya", "latitude"=>-1.2812288, "longitude"=>36.7951872}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:23:57 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"bbicib", "date"=>"2019-05-09", "description"=>" s sk ks", "status"=>1, "location"=>"unnamed road, Nairobi, 00400, Kenya", "latitude"=>-1.2812288, "longitude"=>36.7951872, "incident"=>{"title"=>"bbicib", "description"=>" s sk ks", "status"=>1, "date"=>"2019-05-09", "location"=>"unnamed road, Nairobi, 00400, Kenya", "latitude"=>-1.2812288, "longitude"=>36.7951872}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 103)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 10:24:28 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"cwcwe", "date"=>"2019-02-05", "description"=>"cqcwq", "status"=>1, "location"=>"unnamed road, Nairobi, 00400, Kenya", "latitude"=>-1.2812288, "longitude"=>36.7951872, "incident"=>{"title"=>"cwcwe", "description"=>"cqcwq", "status"=>1, "date"=>"2019-02-05", "location"=>"unnamed road, Nairobi, 00400, Kenya", "latitude"=>-1.2812288, "longitude"=>36.7951872}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 97)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 10:35:18 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 3723)
+
+
+Started GET "/users/check" for 127.0.0.1 at 2023-05-01 10:35:49 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController
+Did you mean?  SessionsController):
+  
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 10:50:43 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 67ms (Views: 0.6ms | ActiveRecord: 8.1ms | Allocations: 8174)
+
+
+Started GET "/users/check" for 127.0.0.1 at 2023-05-01 10:51:08 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController
+Did you mean?  SessionsController):
+  
+Started GET "/users/check" for 127.0.0.1 at 2023-05-01 10:53:06 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController
+Did you mean?  SessionsController):
+  
+Started GET "/check" for 127.0.0.1 at 2023-05-01 10:55:18 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController
+Did you mean?  SessionsController):
+  
+Started GET "/check" for 127.0.0.1 at 2023-05-01 10:55:57 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController
+Did you mean?  SessionsController):
+  
+Started GET "/check" for 127.0.0.1 at 2023-05-01 10:56:34 +0300
+Processing by SessionsController#check as */*
+  Parameters: {"username"=>"matt", "email"=>"matt@gmail.com", "password"=>"[FILTERED]", "session"=>{"username"=>"matt", "email"=>"matt@gmail.com", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.9ms | Allocations: 83)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 10:56:53 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 77)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 10:57:59 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 5.4ms | Allocations: 9843)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 10:58:25 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 77)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 11:00:18 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 8107)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 11:05:09 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 8196)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:05:26 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 76)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:10:10 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 0ms (Views: 0.3ms | Allocations: 82)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 11:13:53 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 5.3ms | Allocations: 3615)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:14:35 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 76)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:16:29 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 76)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:17:21 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 76)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:18:47 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 77)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:20:56 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.5ms | Allocations: 76)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:22:09 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.5ms | Allocations: 76)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:22:52 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 76)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 11:27:07 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 5.4ms | Allocations: 9761)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:27:26 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 76)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:28:40 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 76)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 11:40:48 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 103ms (Views: 0.4ms | ActiveRecord: 21.3ms | Allocations: 3619)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:41:10 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 76)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:43:31 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.5ms | Allocations: 77)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 11:43:31 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"xqqx", "date"=>"2023-05-02", "description"=>"xqxqxqa", "status"=>1, "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "incident"=>{"title"=>"xqqx", "description"=>"xqxqxqa", "status"=>1, "date"=>"2023-05-02", "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 17.5ms | Allocations: 119)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:44:10 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.6ms | Allocations: 76)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 11:44:10 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"xqxqx", "date"=>"2021-01-04", "description"=>"xqxqxqx wcw", "status"=>1, "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "user_id"=>"4", "incident"=>{"title"=>"xqxqx", "description"=>"xqxqxqx wcw", "status"=>1, "date"=>"2021-01-04", "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "user_id"=>"4"}}
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 16.9ms | Allocations: 114)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:44:55 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 83)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 11:44:56 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"xqxqx", "date"=>"2023-05-02", "description"=>"xqxqxqsxsq", "status"=>1, "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "user_id"=>"4", "incident"=>{"title"=>"xqxqx", "description"=>"xqxqxqsxsq", "status"=>1, "date"=>"2023-05-02", "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "user_id"=>"4"}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (2.5ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "xqxqx"], ["description", "xqxqxqsxsq"], ["status", 1], ["date", "2023-05-02"], ["location", "Nairobi"], ["latitude", -1.2832533], ["longitude", 36.8172449], ["user_id", 4], ["created_at", "2023-05-01 08:44:56.347869"], ["updated_at", "2023-05-01 08:44:56.347869"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:47:in `user_session'
+Completed 422 Unprocessable Entity in 130ms (Views: 0.6ms | ActiveRecord: 30.9ms | Allocations: 29048)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-05-01 11:47:55 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"matt", "password"=>"[FILTERED]", "role"=>"", "session"=>{"username"=>"matt", "password"=>"[FILTERED]", "role"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "matt"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11:in `create'
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 4.9ms | Allocations: 8105)
+
+
+Started GET "/check" for 127.0.0.1 at 2023-05-01 11:48:35 +0300
+Processing by SessionsController#check as */*
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 76)
+
+
+Started POST "/incidents/create" for 127.0.0.1 at 2023-05-01 11:48:35 +0300
+Processing by IncidentsController#create as */*
+  Parameters: {"title"=>"robbery", "date"=>"2021-02-02", "description"=>"Armed Robbery ", "status"=>0, "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "user_id"=>4, "incident"=>{"title"=>"robbery", "description"=>"Armed Robbery ", "status"=>0, "date"=>"2021-02-02", "location"=>"Nairobi", "latitude"=>-1.2832533, "longitude"=>36.8172449, "user_id"=>4}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mIncident Create (0.9ms)[0m  [1m[32mINSERT INTO "incidents" ("title", "description", "status", "date", "location", "latitude", "longitude", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "robbery"], ["description", "Armed Robbery "], ["status", 0], ["date", "2021-02-02"], ["location", "Nairobi"], ["latitude", -1.2832533], ["longitude", 36.8172449], ["user_id", 4], ["created_at", "2023-05-01 08:48:35.980205"], ["updated_at", "2023-05-01 08:48:35.980205"]]
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/incidents_controller.rb:67:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:47:in `user_session'
+Completed 422 Unprocessable Entity in 20ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 7412)
+
+
+Started GET "/incidents" for 127.0.0.1 at 2023-05-01 11:49:35 +0300
+Processing by IncidentsController#index as */*
+  Parameters: {"date"=>"2009-03-07", "description"=>"A saloon car and a lorry collide", "latitude"=>-0.42013, "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "longitude"=>36.94759, "status"=>2, "title"=>"Car crash", "incident"=>{"title"=>"Car crash", "description"=>"A saloon car and a lorry collide", "status"=>2, "date"=>"2009-03-07", "location"=>"Northeast 110th Avenue, Pratt County, KS 67589, United States of America", "latitude"=>-0.42013, "longitude"=>36.94759}}
+  [1m[36mIncident Load (0.3ms)[0m  [1m[34mSELECT "incidents".* FROM "incidents"[0m
+  ↳ app/controllers/application_controller.rb:6:in `app_response'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.3ms | Allocations: 1851)
+
+

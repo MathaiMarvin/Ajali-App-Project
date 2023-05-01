@@ -3,8 +3,12 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 import TawkWidget from './TawkWidget';
+
+
 function IncidentForm(props) {
   const navigate = useNavigate()
+
+  const userId = parseInt(sessionStorage.getItem('userId'));
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [location, setLocation] = useState('Nairobi');
@@ -16,15 +20,25 @@ function IncidentForm(props) {
     location: "",
     latitude: " ",
     longitude: " ",
+    user_id: userId,
+   // Add the user ID to the formData object
   }); // set the default location here
   const handleSubmit =  (e) => {
     e.preventDefault();
     console.log("Form data:", formData);
-  
-      //Add the latitude and longitude to the form data
+    console.log(userId);
+    //check if user is logged in
+    fetch('https://ajalireports.onrender.com/check')
+    .then(response=>response.json())
+    .then (data=>{
+      console.log(data);
+      
+        //user is logged in send a post request 
+            //Add the latitude and longitude to the form data
       formData.latitude = latitude;
       formData.longitude = longitude;
       formData.location = location;
+
        // Add the user ID to the form data
     
       // Send a POST request to the create endpoint with the form data
@@ -33,28 +47,74 @@ function IncidentForm(props) {
         headers:{
           "Content-type": "application/json",
         },
-        body: JSON.stringify(formData),
-      }).then((response)=>{
-        if (response.status === 200) {
-          console.log("Incident created successfully");
-          navigate("/landingpageclient");
-        }else{
-          console.log("Failed to create incident");
-        }
+        body: JSON.stringify(formData)
       })
+
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          alert('Incident Reported Successfully!');
+        }else{
+          alert('Error in reporting Incident. Incident not reported');
+        }
+      }
+        )
+   
+  
+    })
+    
+  
+  
    
   
   };
-  // useEffect(() => {
-  //   axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${location},Kenya&key=d8e08d86813a4657bb5f4b35886dcea2`)
-  //     .then(response => {
-  //       setLatitude(response.data.results[0].geometry.lat);
-  //       setLongitude(response.data.results[0].geometry.lng);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
+
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Form data:", formData);
+  //   console.log(userId);
+  //   // check if user is logged in
+  //   fetch("http://127.0.0.1:3000/check")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       if (data.isLoggedIn) {
+  //         // user is logged in, send a post request
+  //         // add the latitude and longitude to the form data
+  //         setFormData({
+  //           ...formData,
+  //           latitude: latitude,
+  //           longitude: longitude,
+  //           location: location,
+  //           user_id: userId,
+  //         });
+  //         // Add the user ID to the form data
+  //         formData.user_id = userId;
+  //         // Send a POST request to the create endpoint with the form data
+  //         fetch("http://127.0.0.1:3000/incidents/create", {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-type": "application/json",
+  //           },
+  //           body: JSON.stringify(formData),
+  //         })
+  //           .then((response) => response.json())
+  //           .then((data) => {
+  //             if (data) {
+  //               alert("Incident Reported Successfully!");
+  //             } else {
+  //               alert("Error in reporting Incident. Incident not reported");
+  //             }
+  //           });
+  //       } else {
+  //         // user is not logged in redirect to login page
+  //         alert("Please login to report an incident");
+  //         // navigate('/');
+  //       }
   //     });
-  // }, [location]);
+  // };
+  
   useEffect(() => {
     axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${location},Kenya&key=d8e08d86813a4657bb5f4b35886dcea2`)
       .then(response => {
@@ -166,69 +226,3 @@ function IncidentForm(props) {
   );
 }
 export default IncidentForm;
-// import Navbar from './Navbar';
-// const IncidentForm = () => {
-//   return ( 
-//     <div>
-//       <Navbar/>
-//       <div
-//       class="block max-w-md rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-//       <form>
-//         {/* Name input */}
-//         <div class="relative mb-6" data-te-input-wrapper-init>
-//           <input
-//             type="text"
-//             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-//             id="exampleInput7"
-//             placeholder="Name" />
-//           <label
-//             for="exampleInput7"
-//             class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-//             >Name
-//           </label>
-//         </div>
-
-//         {/* Email input */}
-//         <div class="relative mb-6" data-te-input-wrapper-init>
-//           <input
-//             type="email"
-//             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-//             id="exampleInput8"
-//             placeholder="Email address" />
-//           <label
-//             for="exampleInput8"
-//             class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-//             >Email address
-//           </label>
-//         </div>
-
-//         {/* Message textarea */}
-//         <div class="relative mb-6" data-te-input-wrapper-init>
-//           <textarea
-//             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-//             id="exampleFormControlTextarea13"
-//             rows="3"
-//             placeholder="Message"></textarea>
-//           <label
-//             for="exampleFormControlTextarea13"
-//             class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-//             >Message
-//           </label>
-//         </div>
-
-//     {/* 
-//         Submit button */}
-//         <button
-//           type="submit"
-//           class="dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-//           data-te-ripple-init
-//           data-te-ripple-color="light">
-//           Send
-//         </button>
-//       </form>
-//     </div>
-//     </div>
-//    );
-// }
- 
-// export default IncidentForm;

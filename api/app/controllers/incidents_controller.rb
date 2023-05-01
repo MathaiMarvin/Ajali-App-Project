@@ -65,6 +65,7 @@ class IncidentsController < ApplicationController
     
     def create
       incident = Incident.create(incident_params)
+      incident.user_id = user_session.id
       if incident.save
         render json: { message: 'success', data: incident }, status: :created
       else
@@ -103,7 +104,10 @@ class IncidentsController < ApplicationController
     private
     
     def incident_params
-      params.require(:incident).permit(:title, :description, :status, :date, :location, :latitude, :longitude)
+      params.require(:incident).permit(:title, :description, :status, :date, :location, :latitude, :longitude, :user_id)
+    end
+    def authorize
+      return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     end
   end
   
