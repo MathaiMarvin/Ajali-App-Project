@@ -75,9 +75,9 @@ import { useState } from "react";
 const IncidentDetails = ({ incident, onClose }) => {
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const handleDelete = () => {
+  const handleDelete = (e, id) => {
     setIsDeleting(true);
-    fetch(`https://ajalireports.onrender.com/incidents/${incident.id}`, {
+    fetch(`https://ajalireports.onrender.com/incidents/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
