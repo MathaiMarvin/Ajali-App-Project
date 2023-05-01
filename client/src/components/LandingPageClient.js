@@ -240,7 +240,7 @@ const handleDelete = (id) => {
                     {filteredItems && Object.entries(filteredItems).map(([key, value]) => (
                       <div key={key} className="card m-2 flex flex-col md:flex-row">
                         <div className="w-full md:w-48">
-                          <img className="h-full object-cover w-full md:rounded-none md:rounded-l-lg" src="https://www.sevenishlaw.com/wp-content/uploads/2020/12/indianapolis-personal-injury-lawyer-what-causes-death-in-motorcycle-accidents.jpg" alt="" />
+                          <img className="h-full object-cover w-full md:rounded-none md:rounded-l-lg" src="https://st3.depositphotos.com/1005979/18588/i/450/depositphotos_185888996-stock-photo-incident-record-event-evidence-document.jpg" alt="" />
                         </div>
                         <div className="w-full md:flex-1 card-body p-4">
                           <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50 cursor-pointer" onClick={() => setSelectedIncident(value)}>Title: {value.title}</h5>
