@@ -91,7 +91,7 @@ class IncidentsController < ApplicationController
     end
     
     def destroy
-      incident = Incident.find_by(id: params[:id])
+      incident = Incidentcd .find_by(id: params[:id])
       if incident
         incident.destroy
         app_response(message: 'Incident deleted successfully', status: :ok)

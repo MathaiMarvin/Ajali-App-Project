@@ -8,6 +8,7 @@ const [items, setItems] = useState([]);
 const [latitude, setLatitude] = useState(null);
 const [longitude, setLongitude] = useState(null);
 const [location, setLocation] = useState('');
+const [selectedFilters, setSelectedFilters] = useState([]);
 
 useEffect(() => {
   async function fetchItems() {
@@ -94,8 +95,21 @@ useEffect(() => {
   }
 }, [latitude, longitude, items]);
 
+const handleFilterChange = (event) => {
+  const value = event.target.value;
+  if (event.target.checked) {
+    setSelectedFilters([...selectedFilters, value]);
+  } else {
+    setSelectedFilters(selectedFilters.filter(filter => filter !== value));
+  }
+};
 
-
+const filteredItems = items.data && items.data.filter(item => {
+  if (selectedFilters.length === 0) {
+    return true;
+  }
+  return selectedFilters.includes(item.status);
+});
 
 
     return ( 
@@ -114,15 +128,15 @@ useEffect(() => {
                       <h4 className="font-semibold">Status</h4>
                       <div className="ml-2 mt-2 space-y-2">
                         <label className="flex items-center">
-                          <input type="checkbox" className="form-checkbox" value="under_investigation" />
+                          <input type="checkbox" className="form-checkbox" value="under_investigation" onChange={handleFilterChange}/>
                           <span className="ml-2">Under Investigation</span>
                         </label>
                         <label className="flex items-center">
-                          <input type="checkbox" className="form-checkbox" value="rejected" />
+                          <input type="checkbox" className="form-checkbox" value="rejected" onChange={handleFilterChange}/>
                           <span className="ml-2">Rejected</span>
                         </label>
                         <label className="flex items-center">
-                          <input type="checkbox" className="form-checkbox" value="resolved" />
+                          <input type="checkbox" className="form-checkbox" value="resolved" onChange={handleFilterChange}/>
                           <span className="ml-2">Resolved</span>
                         </label>
                       </div>
@@ -132,7 +146,7 @@ useEffect(() => {
                   </div>
                   <div className="w-full md:w-2/3 h-screen">
                     <div className="card-container w-full flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-                      {items.data && Object.entries(items.data).map(([key, value]) => (
+                      {filteredItems && Object.entries(filteredItems).map(([key, value]) => (
                         <div key={key} className="card m-2">
                           <img className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.sevenishlaw.com/wp-content/uploads/2020/12/indianapolis-personal-injury-lawyer-what-causes-death-in-motorcycle-accidents.jpg" alt="" />
                           <div className="card-body">
