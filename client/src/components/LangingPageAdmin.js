@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
+import AdminNavbar from "./AdminNavbar";
+import AdminDetails from "./AdminDetails";
+
 
 function LandingPageAdmin() {
   const Url = "https://ajalireports.onrender.com/incidents";
   const [incidents, setIncidents] = useState([]);
+  const [selectedIncident, setSelectedIncident] = useState(null);
 
   useEffect(() => {
     const fetchIncidents = async () => {
@@ -19,19 +22,10 @@ function LandingPageAdmin() {
     fetchIncidents();
   }, []);
 
-  const handleChange = (e, id) => {
-    const newIncidents = incidents.data.map((incident) => {
-      if (incident.id === id) {
-        return { ...incident, status: e.target.value };
-      }
-      return incident;
-    });
-    setIncidents({ data: newIncidents });
-  };
 
   return (
     <div>
-      <Navbar />
+      <AdminNavbar />
       <table>
         <thead>
           <tr>
@@ -43,21 +37,25 @@ function LandingPageAdmin() {
         <tbody>
           {incidents.data &&
             incidents.data.map((incident) => (
+          
               <tr key={incident.id}>
-                <td>{incident.title}</td>
+                   
+                <td onClick={() => setSelectedIncident(incident)}>{incident.title}</td>
                 <td>{incident.description}</td>
                 <td>
-                  <select
-                    value={incident.status}
-                    onChange={(e) => handleChange(e, incident.id)}
-                  >
-                    <option value="under_investigation">Under Investigation</option>
-                    <option value="resolved">Resolved</option>
-                    <option value="rejected">Rejected</option>
-                  </select>
+                  {incident.status}  
+
                 </td>
+                 {selectedIncident && selectedIncident.id === incident.id && (
+                          <AdminDetails
+                            incident={selectedIncident}
+                            onClose={() => setSelectedIncident(null)}
+                          />
+                )}
               </tr>
             ))}
+
+            
         </tbody>
       </table>
     </div>
