@@ -53,15 +53,24 @@ const handleLogin = (e) => {
         
     return ( 
         <div>
-            <nav
-            className=" flex w-full flex-wrap items-center justify-between bg-neutral-100 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4 fixed top-0 h-20 ">
-            <div className="flex w-full flex-wrap items-center justify-between px-3">
-                <div>
-                <Link className="text-xl text-neutral-800 dark:text-neutral-200 uppercase" to="/" 
-                    >AJALI REPORT</Link>
+            <nav className="flex w-full flex-wrap items-center justify-between bg-neutral-100 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4 fixed top-0 h-20">
+                <div className="flex w-full flex-wrap items-center justify-between px-3">
+                    <div>
+                    <Link className="text-xl text-neutral-800 dark:text-neutral-200 uppercase" to="/">
+                        AJALI REPORT
+                    </Link>
+                    </div>
+                    <div>
+                    <button className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                        <Link to="/signup"> Sign Up</Link>
+                      
+                    </button>
+                    </div>
                 </div>
-            </div>
-            </nav>
+                </nav>
+
+
+
             <section className="h-screen">
                 <div className="container h-full px-6 py-24">
                     <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
@@ -98,7 +107,20 @@ const handleLogin = (e) => {
                                 <div className="relative mb-6" data-te-input-wrapper-init>
                                 <input
                                     type="text"
-                                    className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                    className="form-control block
+                                    w-full
+                                    px-3
+                                    py-1.5
+                                    text-base
+                                    font-normal
+                                    text-gray-700
+                                    bg-white bg-clip-padding
+                                    border border-solid border-gray-300
+                                    rounded
+                                    transition
+                                    ease-in-out
+                                    m-0
+                                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     id="exampleFormControlInput3"
                                     placeholder="Username" 
                                     onChange={(e) => setFormData({ ...formData, username: e.target.value })}
@@ -106,14 +128,27 @@ const handleLogin = (e) => {
                                     <label
                                     for="exampleFormControlInput3"
                                     className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                                    >Username
+                                    >
                                     </label>
                                 </div>
                                 {/* Password input */}
                                 <div className="relative mb-6" data-te-input-wrapper-init>
                                     <input
                                     type="password"
-                                    className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                    className="form-control block
+                                    w-full
+                                    px-3
+                                    py-1.5
+                                    text-base
+                                    font-normal
+                                    text-gray-700
+                                    bg-white bg-clip-padding
+                                    border border-solid border-gray-300
+                                    rounded
+                                    transition
+                                    ease-in-out
+                                    m-0
+                                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     id="exampleFormControlInput33"
                                     placeholder="Password" 
                                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -121,13 +156,26 @@ const handleLogin = (e) => {
                                     <label
                                     for="exampleFormControlInput33"
                                     className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                                    >Password
+                                    >
                                     </label>
                                 </div>
                                 {/* role */}
                                 <div className="relative mb-6" data-te-input-wrapper-init>
                                     <select
-                                        className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                        className="form-control block
+                                        w-full
+                                        px-3
+                                        py-1.5
+                                        text-base
+                                        font-normal
+                                        text-gray-700
+                                        bg-white bg-clip-padding
+                                        border border-solid border-gray-300
+                                        rounded
+                                        transition
+                                        ease-in-out
+                                        m-0
+                                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         id="exampleFormControlInput33"
                                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                                     >
@@ -225,14 +273,62 @@ const handleLogin = (e) => {
                 </div>
 
             </section>
+
+            <section class="mb-24 text-gray-800 text-center border-t border-gray-200">
+                <style>
+                    {`@media (min-width: 992px) {
+                            .rotate-lg-6 {
+                            transform: rotate(3deg);
+                            }
+                        }`}
+                    </style>
+
+
+                    <div class="px-6 py-12 md:px-12">
+                    <div class="container mx-auto xl:px-32">
+                        <div class="grid lg:grid-cols-2 flex items-center">
+                        <div class="md:mt-12 lg:mt-0 mb-12 lg:mb-0">
+                            <div
+                            class="relative block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:-mr-14"
+                            style={{
+                                background: "hsla(0, 0%, 100%, 0.55)",
+                                backdropFilter: "blur(30px)",
+                                zIndex: "1"
+                              }}
+                            >
+                            <h1 class="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight mb-8">
+                                Save Lives <br /><span class="text-blue-600">Report now!</span>
+                            </h1>
+                            <button
+                                type="button"
+                                class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                data-mdb-ripple="true"
+                                data-mdb-ripple-color="light"
+                            >
+                                <Link to="/signup"> Start</Link>
+                                
+                            </button>
+                            </div>
+                        </div>
+                        <div class="md:mb-12 lg:mb-0">
+                            <img
+                            src="https://st2.depositphotos.com/5576514/8373/v/950/depositphotos_83734186-stock-illustration-car-accident-cartoon.jpg"
+                            class="w-full rounded-lg shadow-lg rotate-lg-6"
+                            alt=""
+                            />
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
             <section class="text-neutral-700 dark:text-neutral-300 w-screen px-6 border-t border-gray-200 py-4">
                 <div class="mx-auto text-center md:max-w-xl lg:max-w-3xl">
-                    <h3 class="mb-6 text-3xl font-bold">Testimonials</h3>
-                    <p class="mb-6 pb-2 md:mb-12 md:pb-0">
+                    <h3 class="mb-14 text-3xl font-bold ">Testimonials</h3>
+                    {/* <p class="mb-6 pb-2 md:mb-12 md:pb-0">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
                     error amet numquam iure provident voluptate esse quasi, veritatis
                     totam voluptas nostrum quisquam eum porro a pariatur veniam.
-                    </p>
+                    </p> */}
                 </div>
 
                 {/* First Testimonial */}
@@ -244,10 +340,10 @@ const handleLogin = (e) => {
                         <div
                         class="mx-auto -mt-12 w-20 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
                         <img
-                            src={imgtestimonial2} />
+                            src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(8).jpg"/>
                         </div>
                         <div class="p-6">
-                        <h4 class="mb-4 text-2xl font-semibold">James Kiragu</h4>
+                        <h4 class="mb-4 text-2xl font-semibold"> Ali Hassan</h4>
                         <hr />
                         <p class="mt-4">
                             <svg
@@ -258,8 +354,7 @@ const handleLogin = (e) => {
                             <path
                                 d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
                             </svg>
-                            Lorem ipsum dolor sit amet eos adipisci, consectetur
-                            adipisicing elit.
+                            I was in a car accident and immediately used the incident report app to document the scene. The app was easy to use and provided step-by-step guidance to ensure that all necessary information was captured. Thanks to the app, I was able to submit a thorough report to my insurance company and get the compensation I needed.
                         </p>
                         </div>
                     </div>
@@ -287,8 +382,7 @@ const handleLogin = (e) => {
                             <path
                                 d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
                             </svg>
-                            Neque cupiditate assumenda in maiores repudi mollitia
-                            architecto.
+                            The incident report app is a must-have for anyone who drives. It provides a simple and effective way to report incidents and accidents, and the information is stored securely in the cloud for easy access later on. I feel much safer on the road knowing that I have this app at my fingertips.
                         </p>
                         </div>
                     </div>
@@ -302,10 +396,10 @@ const handleLogin = (e) => {
                         <div
                         class="mx-auto -mt-12 w-20 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
                         <img
-                            src={imgtestimonial2} />
+                            src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(9).jpg" />
                         </div>
                         <div class="p-6">
-                        <h4 class="mb-4 text-2xl font-semibold">John Maina</h4>
+                        <h4 class="mb-4 text-2xl font-semibold">John Smithson</h4>
                         <hr />
                         <p class="mt-4">
                             <svg
@@ -316,13 +410,188 @@ const handleLogin = (e) => {
                             <path
                                 d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
                             </svg>
-                            Delectus impedit saepe officiis ab aliquam repellat rem.
+                            I witnessed a hit-and-run and was able to quickly report the incident using the app. The ability to add photos and videos was particularly helpful in providing evidence for the police investigation. I highly recommend this app to anyone who wants to report an incident quickly and accurately.
                         </p>
                         </div>
                     </div>
                     </div>
                 </div>
                 </section>
+
+                <section class="mb-40 text-gray-800 p-10 mt-40 border-t border-gray-200">
+    <div class="flex justify-center">
+      <div class="text-center lg:max-w-3xl md:max-w-xl">
+        <h2 class="text-3xl font-bold mb-32 px-6">Contact us</h2>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="grow-0 shrink-0 basis-auto mb-12 lg:mb-0 w-full lg:w-5/12 px-3 lg:px-6">
+        <form>
+          <div class="form-group mb-6">
+            <input type="text" class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7"
+              placeholder="Name"/>
+          </div>
+          <div class="form-group mb-6">
+            <input type="email" class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput8"
+              placeholder="Email address"/>
+          </div>
+          <div class="form-group mb-6">
+            <textarea class="
+            form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+          " id="exampleFormControlTextarea13" rows="3" placeholder="Message"></textarea>
+          </div>
+          {/* <div class="form-group form-check text-center mb-6">
+            <input type="checkbox"
+              class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+              id="exampleCheck87" checked>
+            <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">Send me a copy of this
+              message</label>
+          </div> */}
+          <button type="submit" class="
+          w-full
+          px-6
+          py-2.5
+          bg-blue-600
+          text-white
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+          hover:bg-blue-700 hover:shadow-lg
+          focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-blue-800 active:shadow-lg
+          transition
+          duration-150
+          ease-in-out">Send</button>
+        </form>
+      </div>
+      <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12">
+        <div class="flex flex-wrap">
+          <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+            <div class="flex items-start">
+              <div class="shrink-0">
+                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="headset" class="w-5 text-white"
+                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                      d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div class="grow ml-6">
+                <p class="font-bold mb-1">Technical support</p>
+                <p class="text-gray-500">ajalireports@gmail.com</p>
+                <p class="text-gray-500">+254726896783</p>
+              </div>
+            </div>
+          </div>
+          <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+            <div class="flex items-start">
+              <div class="shrink-0">
+                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dollar-sign"
+                    class="w-3 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512">
+                    <path fill="currentColor"
+                      d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div class="grow ml-6">
+                <p class="font-bold mb-1">Sales questions</p>
+                <p class="text-gray-500">salesajalireports@gmail.com</p>
+                <p class="text-gray-500">+254768059802</p>
+              </div>
+            </div>
+          </div>
+          <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+            <div class="flex align-start">
+              <div class="shrink-0">
+                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="newspaper"
+                    class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor"
+                      d="M552 64H88c-13.255 0-24 10.745-24 24v8H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h472c26.51 0 48-21.49 48-48V88c0-13.255-10.745-24-24-24zM56 400a8 8 0 0 1-8-8V144h16v248a8 8 0 0 1-8 8zm236-16H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm-208-96H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm0-96H140c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h360c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div class="grow ml-6">
+                <p class="font-bold mb-1">Press</p>
+                <p class="text-gray-500">ajalireports@gmail.com</p>
+                <p class="text-gray-500">+254746268085</p>
+              </div>
+            </div>
+          </div>
+          <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+            <div class="flex align-start">
+              <div class="shrink-0">
+                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bug" class="w-5 text-white"
+                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                      d="M511.988 288.9c-.478 17.43-15.217 31.1-32.653 31.1H424v16c0 21.864-4.882 42.584-13.6 61.145l60.228 60.228c12.496 12.497 12.496 32.758 0 45.255-12.498 12.497-32.759 12.496-45.256 0l-54.736-54.736C345.886 467.965 314.351 480 280 480V236c0-6.627-5.373-12-12-12h-24c-6.627 0-12 5.373-12 12v244c-34.351 0-65.886-12.035-90.636-32.108l-54.736 54.736c-12.498 12.497-32.759 12.496-45.256 0-12.496-12.497-12.496-32.758 0-45.255l60.228-60.228C92.882 378.584 88 357.864 88 336v-16H32.666C15.23 320 .491 306.33.013 288.9-.484 270.816 14.028 256 32 256h56v-58.745l-46.628-46.628c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0L141.255 160h229.489l54.627-54.627c12.498-12.497 32.758-12.497 45.256 0 12.496 12.497 12.496 32.758 0 45.255L424 197.255V256h56c17.972 0 32.484 14.816 31.988 32.9zM257 0c-61.856 0-112 50.144-112 112h224C369 50.144 318.856 0 257 0z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div class="grow ml-6">
+                <p class="font-bold mb-1">Bug report</p>
+                <p class="text-gray-500">bugsajalireports@gmail.com</p>
+                <p class="text-gray-500">+254726896783</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+                
                  {/* Footer container  */}
                 <footer
                 class="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
@@ -402,7 +671,7 @@ const handleLogin = (e) => {
                 <div class="mx-6 py-10 text-center md:text-left">
                     <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {/* Tailwind Elements section */}
-                    <div class="">
+                    <div class="text-left">
                         <h6
                         class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
                         <svg
@@ -420,7 +689,7 @@ const handleLogin = (e) => {
                         </p>
                     </div>
                     {/* Products section  */}
-                    <div class="">
+                    <div class="text-left">
                         <h6
                         class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                         Incidents
@@ -443,7 +712,7 @@ const handleLogin = (e) => {
                         </p>
                     </div>
                     {/* Useful links section  */}
-                    <div class="">
+                    <div class="text-left">
                         <h6
                         class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                         Useful links
