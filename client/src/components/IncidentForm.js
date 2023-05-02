@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
-import TawkWidget from './TawkWidget';
+
 
 
 function IncidentForm(props) {
@@ -222,7 +222,6 @@ function IncidentForm(props) {
       </div>
       <div id="map" className="rounded-md"style={{ height: '785px', width: '50%', float: 'right', margin: '20px', position: 'fixed'}}></div>
       </div>
-      <TawkWidget/>
     </div>
   );
 }
