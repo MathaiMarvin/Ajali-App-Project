@@ -1,6 +1,5 @@
 import Navbar from "./Navbar";
 import React, { useState, useEffect } from "react";
-import TawkWidget from "./TawkWidget";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -266,7 +265,7 @@ const handleDelete = (id) => {
 
                 </div>
                 </div>
-                <TawkWidget/>
+             
             </div>
         </div>
       
