@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import IncidentDetails from "./IncidentDetails";
+import TawkWidget from './TawkWidget';
 
 const LandingPageClient = () => {
 const [items, setItems] = useState([]);
@@ -265,7 +266,7 @@ const handleDelete = (id) => {
 
                 </div>
                 </div>
-             
+             <TawkWidget/>
             </div>
         </div>
       
